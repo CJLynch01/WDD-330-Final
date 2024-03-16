@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<link rel="stylesheet" href="css/styles.css">
+<title>Document</title>
+
+<div class="hero">
+    <picture>
+        <source srcset="images/small.webp" media="(max-width: 600px)">
+        <source srcset="images/medium.webp" media="(max-width: 900px)">
+        <img src="images/large.webp" alt="hero image" width="1500" height="750">
+    </picture>
+</div>
+
 </head>
 <body>
     
+<div class="index-icons">
+    <div class="dayicon">
+        <img src="images/day.webp" width="150" height="100">
+        <h3>Today's Workout</h3>
+    </div>
+
+    <div class="weekicon">
+        <img src="images/week.webp" width="150" height="100">
+        <h3>This Week's Workout</h3>
+    </div>
+    
+    <div class="journalicon">
+        <img src="images/journal.webp" width="150" height="100">
+        <h3>Journal</h3>
+    </div>
+
+    <div class="excelicon">
+        <img src="images/excel.webp" width="150" height="100">
+        <h3>Export To Excel</h3>
+    </div>
+
+</div>
+
+<script src="js/main.js"></script>
 </body>
 </html>

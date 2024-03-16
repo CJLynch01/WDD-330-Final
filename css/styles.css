@@ -1,0 +1,123 @@
+
+
+:root {
+    
+    /*    Colors    */
+    --primary-color: #0077b6;
+    --secondary-color: #03045e;
+    --white-: white;
+    --accent-color: #EE6C4D;
+    --accent-color2: #03045e;
+    --slider-main: black;
+    --slider-secondary: darkgrey;
+    
+    /*    Fonts     */
+    --headings-font: 'Dhurjati', sans-serif;
+    --multi-headings: 'Dancing Script', cursive;
+    --paragraph-font: 'Work Sans', sans-serif;
+    --footerdescription-font: 'Hedvig Letters Serif', serif;
+    --modification-font: 'Roboto', sans-serif;
+    
+}
+
+@media screen and (max-width: 600px) {
+
+.hero img {
+    width: 100%;
+    height: auto;
+    padding-top: 2rem;
+}
+
+.index-icons {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    text-align: center;
+    padding-top: 2rem;
+
+}
+
+.dayicon {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.weekicon {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.journalicon {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.excelicon {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+}
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+
+.hero img {
+    width: 100%;
+    height: auto;
+    padding-top: 2rem;
+}
+
+.index-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    vertical-align: top;
+    text-align: center;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.dayicon, .weekicon, .journalicon, .excelicon {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+h3 {
+    display: block;
+}
+
+
+    
+}
+
+@media screen and (min-width: 900px) {
+
+.hero img {
+    width: 100%;
+    height: auto;
+    padding-top: 2rem;
+}
+
+.index-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    vertical-align: top;
+    text-align: center;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.dayicon, .weekicon, .journalicon, .excelicon {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+h3 {
+    display: block;
+}
+        
+}
