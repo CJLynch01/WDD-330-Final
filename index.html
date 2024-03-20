@@ -16,30 +16,42 @@
 
 </head>
 <body>
+    <main>
+        <div class="index-icons">
+            <div class="dayicon">
+                <a href="#" onclick="changeIndex('day')">
+                <img src="images/day.webp" width="150" height="100">
+                <h3>Today's Workout</h3>
+                </a>
+            </div>
+
+            <div class="weekicon">
+                <a href="#" onclick="changeIndex('week')">
+                <img src="images/week.webp" width="150" height="100">
+                <h3>This Week's Workout</h3>
+                </a>
+            </div>
     
-<div class="index-icons">
-    <div class="dayicon">
-        <img src="images/day.webp" width="150" height="100">
-        <h3>Today's Workout</h3>
-    </div>
+            <div class="journalicon">
+                <a href="#" onclick="changeIndex('journal')">
+                <img src="images/journal.webp" width="150" height="100">
+                <h3>Journal</h3>
+                </a>
+            </div>
 
-    <div class="weekicon">
-        <img src="images/week.webp" width="150" height="100">
-        <h3>This Week's Workout</h3>
-    </div>
-    
-    <div class="journalicon">
-        <img src="images/journal.webp" width="150" height="100">
-        <h3>Journal</h3>
-    </div>
+            <div class="excelicon">
+                <a href="#" onclick="changeIndex('excel')">
+                <img src="images/excel.webp" width="150" height="100">
+                <h3>Export To Excel</h3>
+                </a>
+            </div>
 
-    <div class="excelicon">
-        <img src="images/excel.webp" width="150" height="100">
-        <h3>Export To Excel</h3>
-    </div>
+        </div>
 
-</div>
-
-<script src="js/main.js"></script>
+        <div id="generatedInfo"></div>
+    </main>
+<script type="module" src="js/spa.js"></script>
+<script type="module" src="js/date.js"></script>
+<!-- <script type="module" src="js/main.js"></script> -->
 </body>
 </html>
