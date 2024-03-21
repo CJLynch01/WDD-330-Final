@@ -18,40 +18,46 @@
 <body>
     <main>
         <div class="index-icons">
+
+            <div class="homeicon">
+                <a href="/" class="route">
+                    <img src="" width="150" height="100">
+                    <h3>Home</h3>
+                </a>
+            </div>
+
             <div class="dayicon">
-                <a href="#" onclick="changeIndex('day')">
+                <a href="/day" class="route">
                 <img src="images/day.webp" width="150" height="100">
                 <h3>Today's Workout</h3>
                 </a>
             </div>
 
             <div class="weekicon">
-                <a href="#" onclick="changeIndex('week')">
+                <a href="/week" class="route">
                 <img src="images/week.webp" width="150" height="100">
                 <h3>This Week's Workout</h3>
                 </a>
             </div>
     
             <div class="journalicon">
-                <a href="#" onclick="changeIndex('journal')">
+                <a href="/journal" class="route">
                 <img src="images/journal.webp" width="150" height="100">
                 <h3>Journal</h3>
                 </a>
             </div>
 
             <div class="excelicon">
-                <a href="#" onclick="changeIndex('excel')">
+                <a href="/excel" class="route">
                 <img src="images/excel.webp" width="150" height="100">
                 <h3>Export To Excel</h3>
                 </a>
             </div>
 
         </div>
-
-        <div id="generatedInfo"></div>
+        <div id="app"></div>
     </main>
-<script type="module" src="js/spa.js"></script>
-<script type="module" src="js/date.js"></script>
-<!-- <script type="module" src="js/main.js"></script> -->
+
+<script src="js/app.js" type="module"></script>
 </body>
 </html>
