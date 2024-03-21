@@ -10,7 +10,7 @@ window.addEventListener('popstate', handleRouteChange);
 handleRouteChange();
 
 function homeView() {
-    return `<h1>Home Page</h1>`;
+    return ``;
 }
 
 
@@ -19,8 +19,16 @@ function dayWorkout() {
     return `<h1>Today's Workout</h1>
     ${getDate()}
     
-    <button type="button" id="saveToday>Submit</button>
+    <button type="button" id="workoutToday">Submit</button>
     `;
+}
+
+function weekWorkout() {
+    return `<h1>This Week's Workout</h1>`;
+}
+
+function journal() {
+    return `<h1>Journal</h1>`;
 }
 
 // Update handleRouteChange to render views
@@ -31,6 +39,14 @@ function handleRouteChange() {
     switch (path) {
         case '/day':
             view = dayWorkout();
+            break;
+
+        case '/week':
+            view = weekWorkout();
+            break;
+
+        case `/journal`:
+            view = journal();
             break;
 
         default:
