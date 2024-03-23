@@ -8,6 +8,60 @@ export function getDate(){
   
     today = mm + " " + dd + ", " + yyyy;
     return today;
-  }
-  
-getDate();
+}
+
+export function getSunday() {
+    var sunday = 0;
+    var fromDate = new Date(); //or any date you calculate from
+    fromDate.setDate(fromDate.getDate() + (7 - fromDate.getDay()) + sunday);
+        
+    return fromDate.toLocaleDateString()
+}
+
+export function getMonday() {
+    var monday = 1;
+    var fromDate = new Date(); //or any date you calculate from
+    fromDate.setDate(fromDate.getDate() + (7 - fromDate.getDay()) + monday);
+        
+    return fromDate.toLocaleDateString()
+}
+
+export function getTuesday() {
+    var tuesday = 2;
+    var fromDate = new Date(); //or any date you calculate from
+    fromDate.setDate(fromDate.getDate() + (7 - fromDate.getDay()) + tuesday);
+        
+    return fromDate.toLocaleDateString()
+}
+
+export function getWednesday() {
+    var wednesday = 3;
+    var fromDate = new Date(); //or any date you calculate from
+    fromDate.setDate(fromDate.getDate() + (7 - fromDate.getDay()) + wednesday);
+        
+    return fromDate.toLocaleDateString()
+}
+
+export function getThursday() {
+    var thursday = 4;
+    var fromDate = new Date(); //or any date you calculate from
+    fromDate.setDate(fromDate.getDate() + (7 - fromDate.getDay()) + thursday);
+        
+    return fromDate.toLocaleDateString()
+}
+
+export function getFriday() {
+    var friday = 5;
+    var fromDate = new Date(); //or any date you calculate from
+    fromDate.setDate(fromDate.getDate() + (7 - fromDate.getDay()) + friday);
+        
+    return fromDate.toLocaleDateString()
+}
+
+export function getSaturday() {
+    var saturday = 6;
+    var fromDate = new Date(); //or any date you calculate from
+    fromDate.setDate(fromDate.getDate() + (7 - fromDate.getDay()) + saturday);
+        
+    return fromDate.toLocaleDateString()
+}

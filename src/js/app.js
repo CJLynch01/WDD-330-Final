@@ -1,4 +1,4 @@
-import { getDate } from "./date.mjs";
+import { getDate,getSunday,getMonday,getTuesday,getWednesday,getThursday,getFriday,getSaturday } from "./date.mjs";
 
 
     // Logic to render the view based on the path
@@ -24,7 +24,17 @@ function dayWorkout() {
 }
 
 function weekWorkout() {
-    return `<h1>This Week's Workout</h1>`;
+    return `<h1>Next Week's Workouts</h1>
+    
+    <h2>Sunday: ${getSunday()}</h2>
+    <h2>Monday: ${getMonday()}</h2>
+    <h2>Sunday: ${getTuesday()}</h2>
+    <h2>Wednesday: ${getWednesday()}</h2>
+    <h2>Thursday: ${getThursday()}</h2>
+    <h2>Friday: ${getFriday()}</h2>
+    <h2>Saturday: ${getSaturday()}</h2>
+
+    `;
 }
 
 function journal() {
