@@ -1,3 +1,9 @@
 {
-    "strength" : ["Deadlift, Bench Press, Squat, Push Press"]
+    "strength": [
+        "",
+        "Deadlift",
+        "Bench Press",
+        "Squat",
+        "Push Press"
+    ]
 }
