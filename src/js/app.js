@@ -259,11 +259,16 @@ function deleteALift(button) {
     row.parentNode.removeChild(row);
 }
 
-// document.addEventListener('click', function (e) {
-//     if(hasClass(e.target, 'addlift')) {
+function hasClass(elem, className) {
+    return elem.className.split(' ').indexOf(className) > -1;
+}
 
-//     }
-// })
+document.addEventListener('click', function (e) {
+    alert(e.target.className);
+if (hasClass(e.target, 'addlift')) {
+    alert('addlift');
+}
+}, false);
 
 
 document.getElementById('addlift').addEventListener('click', addPLift); // Add primary lift data to the table on click
