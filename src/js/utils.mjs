@@ -23,10 +23,10 @@ export function loadprimarylift(data, primarylifts) {
 }
 
 //fetch accessory lifts from JSON file
-export function fetchaccessorylift(secondarylifts) {
+export function fetchaccessorylift(accessorylifts) {
     fetch(url2)
     .then(res => res.json())
-    .then(data => loadaccessorylift(data, secondarylifts))
+    .then(data => loadaccessorylift(data, accessorylifts))
     .catch(err => console.log(err))
 }
 
