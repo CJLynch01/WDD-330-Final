@@ -1,42 +1,5 @@
 import { getDate,getSunday,getMonday,getTuesday,getWednesday,getThursday,getFriday,getSaturday } from "./date.mjs";
-import { fetchprimarylift, fetchaccessorylift } from "./utils.mjs";
-
-
-function addPLift() {
-
-    let list1 = [];
-    let list2 = [];
-    let list3 = [];
-    let list4 = [];
-    
-    let n = 1;
-    let x = 0;
-
-    let addRow = document.getElementById("tbl");
-    let newRow = addRow.insertRow(n);
-
-    list1[x] = getDate();
-    list2[x] = document.getElementById("primarylifts").value;
-    list3[x] = document.getElementById("plset").value;
-    list4[x] = document.getElementById("plrep").value;
-
-    let cel1 = newRow.insertCell(0);
-    let cel2 = newRow.insertCell(1);
-    let cel3 = newRow.insertCell(2);
-    let cel4 = newRow.insertCell(3);
-    let cel5 = newRow.insertCell(4);
-
-    cel1.innerHTML = list1[x];
-    cel2.innerHTML = list2[x];
-    cel3.innerHTML = list3[x];
-    cel4.innerHTML = list4[x];
-    cel5.innerHTML = ' <input class="removePRow" type="button" onclick="deletePLift(this)" value="Delete"></input>';
-    cel5.querySelector('.removePRow').addEventListener('click', function() {
-        deletePLift(this);
-    });
-    n++;
-    x++;
-}
+import { fetchprimarylift, fetchaccessorylift, loadprimarylift, loadaccessorylift } from "./utils.mjs";
 
 document.addEventListener("DOMContentLoaded", function() {
     fetchprimarylift(primarylifts);
@@ -45,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function() {
     addPLift();
     deleteALift();
     deletePLift();
+    loadaccessorylift();
+    loadprimarylift();
 });
-
-
 
 window.addEventListener('popstate', handleRouteChange);
 
@@ -60,7 +23,8 @@ function homeView() {
 
 
 function dayWorkout() {
-    return `<h1>Today's Workout</h1>
+    return `
+    <h1>Today's Workout</h1>
     <div id="current-date">${getDate()}</div>
 
     <form>
@@ -69,7 +33,7 @@ function dayWorkout() {
         <select name="primarylifts" id="primarylifts"></select>
             Sets:<input id="plset" type="text" name="plsets">
             Reps:<input id="plrep" type="text" name="plreps">
-            <input class="addlift" id="addlift" type="button" onclick="addPLift" value="Add Data" />
+            <input class="addlift" id="addlift" type="button" onclick="addPLift()" value="Add Data" />
         </fieldset>
 
         <fieldset>
@@ -103,12 +67,10 @@ function dayWorkout() {
     <tbody>
      
     </tbody>
-</table>
+    </table>
 
     
     <button type="button" id="workoutToday">Submit</button>
-
-    
     `;
 }
 
@@ -175,41 +137,41 @@ document.querySelectorAll('.route').forEach(link => {
 
 
 
-// function addPLift() {
+function addPLift() {
 
-//     let list1 = [];
-//     let list2 = [];
-//     let list3 = [];
-//     let list4 = [];
+    let list1 = [];
+    let list2 = [];
+    let list3 = [];
+    let list4 = [];
     
-//     let n = 1;
-//     let x = 0;
+    let n = 1;
+    let x = 0;
 
-//     let addRow = document.getElementById("tbl");
-//     let newRow = addRow.insertRow(n);
+    let addRow = document.getElementById("tbl");
+    let newRow = addRow.insertRow(n);
 
-//     list1[x] = getDate();
-//     list2[x] = document.getElementById("primarylifts").value;
-//     list3[x] = document.getElementById("plset").value;
-//     list4[x] = document.getElementById("plrep").value;
+    list1[x] = getDate();
+    list2[x] = document.getElementById("primarylifts").value;
+    list3[x] = document.getElementById("plset").value;
+    list4[x] = document.getElementById("plrep").value;
 
-//     let cel1 = newRow.insertCell(0);
-//     let cel2 = newRow.insertCell(1);
-//     let cel3 = newRow.insertCell(2);
-//     let cel4 = newRow.insertCell(3);
-//     let cel5 = newRow.insertCell(4);
+    let cel1 = newRow.insertCell(0);
+    let cel2 = newRow.insertCell(1);
+    let cel3 = newRow.insertCell(2);
+    let cel4 = newRow.insertCell(3);
+    let cel5 = newRow.insertCell(4);
 
-//     cel1.innerHTML = list1[x];
-//     cel2.innerHTML = list2[x];
-//     cel3.innerHTML = list3[x];
-//     cel4.innerHTML = list4[x];
-//     cel5.innerHTML = ' <input class="removePRow" type="button" onclick="deletePLift(this)" value="Delete"></input>';
-//     cel5.querySelector('.removePRow').addEventListener('click', function() {
-//         deletePLift(this);
-//     });
-//     n++;
-//     x++;
-// }
+    cel1.innerHTML = list1[x];
+    cel2.innerHTML = list2[x];
+    cel3.innerHTML = list3[x];
+    cel4.innerHTML = list4[x];
+    cel5.innerHTML = ' <input class="removePRow" type="button" onclick="deletePLift(this)" value="Delete"></input>';
+    cel5.querySelector('.removePRow').addEventListener('click', function() {
+        deletePLift(this);
+    });
+    n++;
+    x++;
+}
 
 function deletePLift(button) {
     var row = button.parentNode.parentNode;
@@ -264,9 +226,9 @@ function hasClass(elem, className) {
 }
 
 document.addEventListener('click', function (e) {
-    alert(e.target.className);
+    // alert(e.target.className);
 if (hasClass(e.target, 'addlift')) {
-    alert('addlift');
+    // alert('addlift');
 }
 }, false);
 
