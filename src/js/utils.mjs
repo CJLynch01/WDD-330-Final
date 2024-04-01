@@ -43,3 +43,4 @@ export function loadaccessorylift(data, accessorylifts) {
         }
     }
 }
+
