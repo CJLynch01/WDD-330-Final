@@ -3,7 +3,7 @@ const url2 = "../json/accessory.json"
 
 const primarylifts = new Set();
 
-export function fetchprimarylift(data) {
+export function fetchprimarylift() {
     fetch(url1)
     .then(res => {
         return res.json();
