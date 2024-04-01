@@ -16,6 +16,7 @@ export function fetchprimarylift(data) {
 
 //load primary lifts from JSON file
 export function loadprimarylift(data) {
+    const listContainer = document.getElementById('primarylifts');
     for (var key in data) {
         var list = data[key];
         for (var obj in list) {
@@ -23,6 +24,7 @@ export function loadprimarylift(data) {
             opt.text = list[obj];
             opt.value = list[obj];
             primarylifts.add(opt);
+            listContainer.options[listContainer.options.length]= new Option(opt.text, opt.value)
         }
     }
 }
@@ -44,6 +46,7 @@ export function fetchaccessorylift() {
 
 //load accessory lifts from JSON file
 export function loadaccessorylift(data) {
+    const listContainer = document.getElementById('accessorylifts');
     for (var key in data) {
         var list = data[key];
         for (var obj in list) {
@@ -51,6 +54,8 @@ export function loadaccessorylift(data) {
             opt.text = list[obj];
             opt.value = list[obj];
             accessorylifts.add(opt);
+            listContainer.options[listContainer.options.length]= new Option(opt.text, opt.value)
+
         }
     }
 }

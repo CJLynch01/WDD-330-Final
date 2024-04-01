@@ -146,7 +146,8 @@ function handleRouteChange() {
 
     switch (path) {
         case '/day':
-            view = dayWorkout();
+                
+        view = dayWorkout();
             break;
 
         case '/week':
@@ -162,7 +163,10 @@ function handleRouteChange() {
     }
 
     document.getElementById('app').innerHTML = view;
-
+    const primarylifts = []; 
+    fetchprimarylift(primarylifts)
+    const acclifts = []; 
+    fetchaccessorylift(acclifts)
 }
 
 document.querySelectorAll('.route').forEach(link => {
