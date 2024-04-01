@@ -2,14 +2,42 @@ import { getDate,getSunday,getMonday,getTuesday,getWednesday,getThursday,getFrid
 import { fetchprimarylift, fetchaccessorylift, loadprimarylift, loadaccessorylift } from "./utils.mjs";
 
 document.addEventListener("DOMContentLoaded", function() {
+    // Define primarylifts array
+    const primarylifts = []; // You may initialize it with any default values if needed
+    
+    // Define accessorylifts array
+    const accessorylifts = []; // You may initialize it with any default values if needed
+    
     fetchprimarylift(primarylifts);
     fetchaccessorylift(accessorylifts);
     addALift();
     addPLift();
-    deleteALift();
-    deletePLift();
     loadaccessorylift();
     loadprimarylift();
+    
+    // Check if the element exists before adding the event listener
+    const addLiftButton = document.getElementById('addlift');
+    if (addLiftButton) {
+        addLiftButton.addEventListener('click', addPLift);
+    }
+
+    // Check if the element exists before adding the event listener
+    const addAccessoryButton = document.getElementById('addaccessory');
+    if (addAccessoryButton) {
+        addAccessoryButton.addEventListener('click', addALift);
+    }
+});
+
+document.querySelectorAll('.removeARow').forEach(button => {
+    button.addEventListener('click', function() {
+        deleteALift(this);
+    });
+});
+
+document.querySelectorAll('.removePRow').forEach(button => {
+    button.addEventListener('click', function() {
+        deletePLift(this);
+    });
 });
 
 window.addEventListener('popstate', handleRouteChange);
@@ -174,7 +202,28 @@ function addPLift() {
 }
 
 function deletePLift(button) {
+    // Check if the button parameter is an object
+    if (typeof button !== 'object' || button === null) {
+        console.error("Invalid argument passed to deletePLift:", button);
+        return;
+    }
+
+    // Check if the button has a parent node
+    if (!button.parentNode) {
+        console.error("Parent node not found for the button in deletePLift");
+        return;
+    }
+
+    // Get the parent row of the button
     var row = button.parentNode.parentNode;
+
+    // Check if the row has a parent node
+    if (!row.parentNode) {
+        console.error("Parent node not found for the row in deletePLift");
+        return;
+    }
+
+    // Remove the row from its parent
     row.parentNode.removeChild(row);
 }
 
@@ -189,6 +238,10 @@ function addALift() {
     let x = 0;
 
     let addRow = document.getElementById("tbl2");
+    if (!addRow) {
+        console.error("Element 'tbl2' not found");
+        return;
+    }
     let newRow = addRow.insertRow(n);
 
     list1[x] = getDate();
@@ -217,7 +270,28 @@ function addALift() {
 }
 
 function deleteALift(button) {
+    // Check if the button parameter is an object
+    if (typeof button !== 'object' || button === null) {
+        console.error("Invalid argument passed to deleteALift:", button);
+        return;
+    }
+
+    // Check if the button has a parent node
+    if (!button.parentNode) {
+        console.error("Parent node not found for the button in deleteALift");
+        return;
+    }
+
+    // Get the parent row of the button
     var row = button.parentNode.parentNode;
+
+    // Check if the row has a parent node
+    if (!row.parentNode) {
+        console.error("Parent node not found for the row in deleteALift");
+        return;
+    }
+
+    // Remove the row from its parent
     row.parentNode.removeChild(row);
 }
 
@@ -235,8 +309,3 @@ if (hasClass(e.target, 'addlift')) {
 
 document.getElementById('addlift').addEventListener('click', addPLift); // Add primary lift data to the table on click
 document.getElementById('addaccessory').addEventListener('click', addALift); // Add accessory lift data to the table on click
-
-// Array.from(document.getElementsByClassName("addlift"))
-//     .forEach(function(element){
-//         element.addEventListener("click", addPLift);
-//     });
