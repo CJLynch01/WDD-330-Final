@@ -1,7 +1,7 @@
 window.onload = function() {
-    let audioCtx = null; // Define the AudioContext variable
-    let gainNode = null; // Define the GainNode variable
-    let bufferSource = null; // Define the BufferSourceNode variable
+    let audioCtx = null; 
+    let gainNode = null;
+    let bufferSource = null;
     
     const playButton = document.getElementById('playButton');
     const pauseButton = document.getElementById('pauseButton');
@@ -25,7 +25,7 @@ window.onload = function() {
         const fileReader = new FileReader();
         fileReader.onload = function(event) {
           if (bufferSource) {
-            bufferSource.stop(); // Stop previous buffer source
+            bufferSource.stop(); 
           }
           audioCtx.decodeAudioData(event.target.result, function(buffer) {
             bufferSource = audioCtx.createBufferSource();
@@ -41,13 +41,13 @@ window.onload = function() {
     }
   
     playButton.addEventListener('click', function() {
-      if (!audioCtx) createAudioContext(); // Create AudioContext on play
+      if (!audioCtx) createAudioContext();
       playSong(currentSongIndex);
     });
   
     pauseButton.addEventListener('click', function() {
       if (bufferSource && audioCtx) {
-        bufferSource.stop(); // Stop the current buffer source
+        bufferSource.stop(); 
         playButton.style.display = 'inline-block';
         pauseButton.style.display = 'none';
       }
@@ -85,7 +85,7 @@ window.onload = function() {
       }
   
       if (playlist.length > 0) {
-        if (!audioCtx) createAudioContext(); // Create AudioContext on file selection
+        if (!audioCtx) createAudioContext(); 
         playSong(0);
       }
     });

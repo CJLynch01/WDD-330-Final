@@ -3,10 +3,9 @@ import { fetchprimarylift, fetchaccessorylift, loadprimarylift, loadaccessorylif
 
 document.addEventListener("DOMContentLoaded", function() {
     // Define primarylifts array
-    const primarylifts = []; // You may initialize it with any default values if needed
-    
+    const primarylifts = []; 
     // Define accessorylifts array
-    const accessorylifts = []; // You may initialize it with any default values if needed
+    const accessorylifts = []; 
     
     fetchprimarylift(primarylifts);
     fetchaccessorylift(accessorylifts);
@@ -217,28 +216,7 @@ function addPLift() {
 }
 
 function deletePLift(button) {
-    // Check if the button parameter is an object
-    if (typeof button !== 'object' || button === null) {
-        console.error("Invalid argument passed to deletePLift:", button);
-        return;
-    }
-
-    // Check if the button has a parent node
-    if (!button.parentNode) {
-        console.error("Parent node not found for the button in deletePLift");
-        return;
-    }
-
-    // Get the parent row of the button
     var row = button.parentNode.parentNode;
-
-    // Check if the row has a parent node
-    if (!row.parentNode) {
-        console.error("Parent node not found for the row in deletePLift");
-        return;
-    }
-
-    // Remove the row from its parent
     row.parentNode.removeChild(row);
 }
 
@@ -253,10 +231,6 @@ function addALift() {
     let x = 0;
 
     let addRow = document.getElementById("tbl2");
-    if (!addRow) {
-        console.error("Element 'tbl2' not found");
-        return;
-    }
     let newRow = addRow.insertRow(n);
 
     list1[x] = getDate();
@@ -285,28 +259,7 @@ function addALift() {
 }
 
 function deleteALift(button) {
-    // Check if the button parameter is an object
-    if (typeof button !== 'object' || button === null) {
-        console.error("Invalid argument passed to deleteALift:", button);
-        return;
-    }
-
-    // Check if the button has a parent node
-    if (!button.parentNode) {
-        console.error("Parent node not found for the button in deleteALift");
-        return;
-    }
-
-    // Get the parent row of the button
     var row = button.parentNode.parentNode;
-
-    // Check if the row has a parent node
-    if (!row.parentNode) {
-        console.error("Parent node not found for the row in deleteALift");
-        return;
-    }
-
-    // Remove the row from its parent
     row.parentNode.removeChild(row);
 }
 
@@ -315,8 +268,6 @@ function hasClass(elem, className) {
 }
 
 document.addEventListener('click', function (e) {
-    // alert(e.target.className);
-if (hasClass(e.target, 'addlift')) {
-    // alert('addlift');
-}
-}, false);
+    if (hasClass(e.target, 'addlift')) {
+    }
+    }, false);
