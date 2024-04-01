@@ -6,11 +6,9 @@ const primarylifts = new Set();
 export function fetchprimarylift(data) {
     fetch(url1)
     .then(res => {
-        console.log("Response received:", res);
         return res.json();
     })
     .then(data => {
-        console.log("Data received:", data);
         loadprimarylift(data);
     })
     .catch(err => console.log(err))
@@ -18,7 +16,6 @@ export function fetchprimarylift(data) {
 
 //load primary lifts from JSON file
 export function loadprimarylift(data) {
-    console.log("data received:", data);
     for (var key in data) {
         var list = data[key];
         for (var obj in list) {
@@ -37,11 +34,9 @@ const accessorylifts = new Set();
 export function fetchaccessorylift() {
     fetch(url2)
     .then(res => {
-        console.log("Response received:", res);
         return res.json();
     })
     .then(data => {
-        console.log("Data received:", data);
         loadaccessorylift(data);
     })
     .catch(err => console.log(err))
@@ -49,7 +44,6 @@ export function fetchaccessorylift() {
 
 //load accessory lifts from JSON file
 export function loadaccessorylift(data) {
-    console.log("data received:", data);
     for (var key in data) {
         var list = data[key];
         for (var obj in list) {

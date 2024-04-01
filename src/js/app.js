@@ -10,10 +10,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
     fetchprimarylift(primarylifts);
     fetchaccessorylift(accessorylifts);
-    addALift();
-    addPLift();
-    loadaccessorylift();
-    loadprimarylift();
     
     // Check if the element exists before adding the event listener
     const addLiftButton = document.getElementById('addlift');
@@ -26,6 +22,11 @@ document.addEventListener("DOMContentLoaded", function() {
     if (addAccessoryButton) {
         addAccessoryButton.addEventListener('click', addALift);
     }
+
+    addALift();
+    addPLift();
+    loadaccessorylift();
+    loadprimarylift();
 });
 
 document.querySelectorAll('.removeARow').forEach(button => {
@@ -39,6 +40,16 @@ document.querySelectorAll('.removePRow').forEach(button => {
         deletePLift(this);
     });
 });
+
+const addLiftButton = document.getElementById('addlift');
+if (addLiftButton) {
+    addLiftButton.addEventListener('click', addPLift);
+}
+
+const addAccessoryButton = document.getElementById('addaccessory');
+if (addAccessoryButton) {
+    addAccessoryButton.addEventListener('click', addALift);
+}
 
 window.addEventListener('popstate', handleRouteChange);
 
@@ -86,15 +97,15 @@ function dayWorkout() {
     </table>
 
     <table id="tbl2" class="table" border="1">
-    <thead>
-        <th>Date</th> 
-        <th>Accessory Lift</th>
-        <th>Sets</th>
-        <th>Reps</th>
-    </thead>
-    <tbody>
+        <thead>
+            <th>Date</th> 
+            <th>Accessory Lift</th>
+            <th>Sets</th>
+            <th>Reps</th>
+        </thead>
+        <tbody>
      
-    </tbody>
+        </tbody>
     </table>
 
     
@@ -176,6 +187,10 @@ function addPLift() {
     let x = 0;
 
     let addRow = document.getElementById("tbl");
+    if (!addRow) {
+        console.error("Element 'tbl' not found");
+        return;
+    }
     let newRow = addRow.insertRow(n);
 
     list1[x] = getDate();
@@ -305,7 +320,3 @@ if (hasClass(e.target, 'addlift')) {
     // alert('addlift');
 }
 }, false);
-
-
-document.getElementById('addlift').addEventListener('click', addPLift); // Add primary lift data to the table on click
-document.getElementById('addaccessory').addEventListener('click', addALift); // Add accessory lift data to the table on click
