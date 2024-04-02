@@ -1,15 +1,7 @@
 import { getDate,getSunday,getMonday,getTuesday,getWednesday,getThursday,getFriday,getSaturday } from "./date.mjs";
 import { fetchprimarylift, fetchaccessorylift, loadprimarylift, loadaccessorylift } from "./utils.mjs";
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Define primarylifts array
-    const primarylifts = []; 
-    // Define accessorylifts array
-    const accessorylifts = []; 
-    
-    fetchprimarylift(primarylifts);
-    fetchaccessorylift(accessorylifts);
-    
+document.addEventListener("DOMContentLoaded", function() {   
     // Check if the element exists before adding the event listener
     const addLiftButton = document.getElementById('addlift');
     if (addLiftButton) {
