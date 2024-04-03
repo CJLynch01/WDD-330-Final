@@ -1,5 +1,6 @@
 import { getDate } from "./utils.mjs";
 import { fetchprimarylift, fetchaccessorylift, addPLift, addALift } from "./lifts.mjs";
+import { fetchcardio, addCardio } from "./cardio.mjs";
 
 // Define the handleRouteChange function
 function handleRouteChange() {
@@ -17,6 +18,7 @@ function handleRouteChange() {
             break;
         case '/cardio':
             view = cardio();
+            fetchcardio();
             break;
         case '/journal':
             view = journal();
@@ -53,6 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const addAccessoryButton = document.getElementById('addAccessoryButton');
     if (addAccessoryButton) {
         addAccessoryButton.addEventListener('click', addALift);
+    }
+
+    //Add event listener to the add cardio button
+    const addCardioButton = document.getElementById('addCardioButton');
+    if (addCardioButton) {
+        addCardioButton.addEventListener('click', addCardio);
     }
 });
 
@@ -111,7 +119,38 @@ function dayWorkout() {
 
 // Define the cardio view function
 function cardio() {
-    return `<h1>Cardio</h1>
+    return `
+    <h1>Cardio</h1>
+    <div id="current-date">${getDate()}</div>
+
+    <form>
+        <fieldset>
+            <legend>Cardio</legend>
+            <select name="cardio" id="cardio"></select>
+            Time:<input id="ctime" type="text" name="ctime">
+            Hours:<input id="chours" type="text" name="chours">
+            Minutes:<input id="cminutes" type="text" name="cminutes">
+            Miles:<input id="cmiles" type="text" name="cmiles">
+            <input id="addCardioButton" type="button" value="Add Data">
+        </fieldset>
+
+        </fieldset>
+    </form>
+    
+        <table id="tbl3" class="table" border="1">
+            <thead>
+                <th>Date</th> 
+                <th>Exercise</th>
+                <th>Time</th>
+                <th>Hours</th>
+                <th>Minutes</th>
+                <th>Miles</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <button type="button" id="cardioToday">Submit</button>
+
 `;
 }
 
