@@ -111,14 +111,8 @@ function dayWorkout() {
 
 // Define the cardio view function
 function cardio() {
-    return `<h1>Next Week's Workouts</h1>
-            <h2>Sunday: ${getSunday()}</h2>
-            <h2>Monday: ${getMonday()}</h2>
-            <h2>Tuesday: ${getTuesday()}</h2>
-            <h2>Wednesday: ${getWednesday()}</h2>
-            <h2>Thursday: ${getThursday()}</h2>
-            <h2>Friday: ${getFriday()}</h2>
-            <h2>Saturday: ${getSaturday()}</h2>`;
+    return `<h1>Cardio</h1>
+`;
 }
 
 // Define the journal view function

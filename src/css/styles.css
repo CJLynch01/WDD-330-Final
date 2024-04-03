@@ -162,7 +162,7 @@ input:checked + label .description {
     background-image: url('../images/day.webp');
 }
 .card[for="p3"] {
-    background-image: url('../images/week.webp');
+    background-image: url('../images/cardio.webp');
 }
 .card[for="p4"] {
     background-image: url('../images/journal.webp');
