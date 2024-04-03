@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/styles.css">
         <title>Document</title>
-
+    </head>
+    <body>
         <div class="hero">
             <picture>
                 <source srcset="images/small.webp" media="(max-width: 600px)">
@@ -13,67 +14,95 @@
                 <img src="images/large.webp" alt="hero image" width="1500" height="750">
             </picture>
         </div>
-    </head>
-    <body>
     
         <div class="audio">
-
             <div id="audioControls">
                 <button id="prevButton" class="controlButton">&#10094;</button>
                 <button id="playButton" class="controlButton">&#9658;</button>
                 <button id="pauseButton" class="controlButton" style="display: none;">&#10074;&#10074;</button>
                 <button id="nextButton" class="controlButton">&#10095;</button>
-              </div>
-              <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1">
             </div>
             
-            <input type="file" id="fileInput" accept="audio/*" multiple>
-            
+            <div id="volumebar">
+                <label for="volumeControl">Volume:</label>
+                <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1">
+            </div>
+        
+            <label for="fileInput">Choose Song...</label>
+                <div class="file">
+                    <input type="file" id="fileInput" accept="audio/*" multiple>
+                </div>
         </div>
 
+        <canvas id="visualizer" width="300" height="300"></canvas>
 
         <div class="index-icons">
+            <div class="wrapper">
+                <input class="scroll" type="radio" name="slide" id="p1" checked>
+                <label for="p1" class="card">
+                    <div class="row">
+                        <div class="icon home">1</div>
+                        <div class="description">
+                            <a href="/" class="route">
+                            <h4>Home</h4>
+                            </a>
+                        </div>
+                    </div>
+                </label>
 
-            <div class="homeicon">
-                <a href="/" class="route">
-                    <img src="" width="150" height="100">
-                    <h3>Home</h3>
-                </a>
-            </div>
+                <input class="scroll" type="radio" name="slide" id="p2">
+                <label for="p2" class="card">
+                    <div class="row">
+                        <div class="icon" id="dayicon">2</div>
+                        <div class="description">
+                            <a href="/day" class="route">
+                            <h4>Weight Training</h4>
+                            </a>
+                        </div>
+                    </div>
+                </label>
 
-            <div class="dayicon">
-                <a href="/day" class="route">
-                <img src="images/day.webp" width="150" height="100">
-                <h3>Today's Workout</h3>
-                </a>
-            </div>
+                <input class="scroll" type="radio" name="slide" id="p3">
+                <label for="p3" class="card">
+                    <div class="row">
+                        <div class="icon">3</div>
+                        <div class="description">
+                            <a href="/cardio" class="route">
+                            <h4>Cardio</h4>
+                            </a>
+                        </div>
+                    </div>
+                </label>
 
-            <div class="weekicon">
-                <a href="/week" class="route">
-                <img src="images/week.webp" width="150" height="100">
-                <h3>This Week's Workout</h3>
-                </a>
-            </div>
-    
-            <div class="journalicon">
-                <a href="/journal" class="route">
-                <img src="images/journal.webp" width="150" height="100">
-                <h3>Journal</h3>
-                </a>
-            </div>
+                <input class="scroll" type="radio" name="slide" id="p4">
+                <label for="p4" class="card">
+                    <div class="row">
+                        <div class="icon">4</div>
+                        <div class="description">
+                            <a href="/journal" class="route">
+                            <h4>Journal</h4>
+                            </a>
+                        </div>
+                    </div>
+                </label>
 
-            <div class="excelicon">
-                <a href="/excel" class="route">
-                <img src="images/excel.webp" width="150" height="100">
-                <h3>Export To Excel</h3>
-                </a>
+                <input class="scroll" type="radio" name="slide" id="p5">
+                <label for="p5" class="card">
+                    <div class="row">
+                        <div class="icon">5</div>
+                        <div class="description">
+                            <a href="/excel" class="route">
+                            <h4>Export To Excel</h4>
+                            </a>
+                        </div>
+                    </div>
+                </label>
             </div>
-
         </div>
         <div id="app"></div>
     
 
-        <script src="js/app.js" type="module" defer></script>
+        <script src="js/app.js" type="module"></script>
         <script src="js/music.js" type="module"></script>
     </body>
 </html>

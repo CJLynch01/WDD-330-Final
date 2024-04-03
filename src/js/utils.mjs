@@ -1,62 +1,93 @@
-const url1 = "../json/primary.json"
-const url2 = "../json/accessory.json"
+import { getDate } from "./date.mjs";
 
-const primarylifts = new Set();
+const url1 = "../json/primary.json";
+const url2 = "../json/accessory.json";
 
 export function fetchprimarylift() {
     fetch(url1)
-    .then(res => {
-        return res.json();
-    })
-    .then(data => {
-        loadprimarylift(data);
-    })
-    .catch(err => console.log(err))
+        .then(res => res.json())
+        .then(data => loadList(data, 'primarylifts'))
+        .catch(err => console.error(err));
 }
 
-//load primary lifts from JSON file
-export function loadprimarylift(data) {
-    const listContainer = document.getElementById('primarylifts');
-    for (var key in data) {
-        var list = data[key];
-        for (var obj in list) {
-            var opt = document.createElement("option");
-            opt.text = list[obj];
-            opt.value = list[obj];
-            primarylifts.add(opt);
-            listContainer.options[listContainer.options.length]= new Option(opt.text, opt.value)
-        }
-    }
-}
-
-
-const accessorylifts = new Set();
-
-//fetch accessory lifts from JSON file
 export function fetchaccessorylift() {
     fetch(url2)
-    .then(res => {
-        return res.json();
-    })
-    .then(data => {
-        loadaccessorylift(data);
-    })
-    .catch(err => console.log(err))
+        .then(res => res.json())
+        .then(data => loadList(data, 'accessorylifts'))
+        .catch(err => console.error(err));
 }
 
-//load accessory lifts from JSON file
-export function loadaccessorylift(data) {
-    const listContainer = document.getElementById('accessorylifts');
-    for (var key in data) {
-        var list = data[key];
-        for (var obj in list) {
-            var opt = document.createElement("option");
-            opt.text = list[obj];
-            opt.value = list[obj];
-            accessorylifts.add(opt);
-            listContainer.options[listContainer.options.length]= new Option(opt.text, opt.value)
-
+function loadList(data, selectId) {
+    const select = document.getElementById(selectId);
+    select.innerHTML = '';
+    for (const key in data) {
+        const list = data[key];
+        for (const item of list) {
+            const option = document.createElement("option");
+            option.text = item;
+            option.value = item;
+            select.appendChild(option);
         }
     }
 }
 
+export function addRow(tableId) {
+    const table = document.getElementById(tableId);
+    if (!table) {
+        console.error(`Table with ID '${tableId}' not found`);
+        return;
+    }
+    const newRow = table.insertRow(-1);
+    const cells = [];
+    for (let i = 0; i < 5; i++) {
+        cells[i] = newRow.insertCell(i);
+    }
+    return newRow;
+}
+
+export function addPLift() {
+    const newRow = addRow('tbl');
+    if (newRow) {
+        const date = getDate();
+        newRow.cells[0].textContent = date;
+        newRow.cells[1].textContent = document.getElementById("primarylifts").value;
+        newRow.cells[2].textContent = document.getElementById("plsets").value;
+        newRow.cells[3].textContent = document.getElementById("plreps").value;
+        newRow.cells[4].innerHTML = '<input type="button" id="deletePRow" value="Delete">';
+    }
+}
+
+export function addALift() {
+    const newRow = addRow('tbl2');
+    if (newRow) {
+        const date = getDate();
+        newRow.cells[0].textContent = date;
+        newRow.cells[1].textContent = document.getElementById("accessorylifts").value;
+        newRow.cells[2].textContent = document.getElementById("alsets").value;
+        newRow.cells[3].textContent = document.getElementById("alreps").value;
+        newRow.cells[4].innerHTML = '<input type="button" id="deleteARow" value="Delete">';
+    }
+}
+
+export function deleteRow(button) {
+    const row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+}
+
+document.addEventListener('click', function(event) {
+    if (event.target.id === 'deletePRow') {
+        const row = event.target.closest('tr');
+        if (row) {
+            row.remove();
+        }
+    }
+});
+
+document.addEventListener('click', function(event) {
+    if (event.target.id === 'deleteARow') {
+        const row = event.target.closest('tr');
+        if (row) {
+            row.remove();
+        }
+    }
+});
