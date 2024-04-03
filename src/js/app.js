@@ -1,5 +1,5 @@
-import { getDate } from "./date.mjs";
-import { fetchprimarylift, fetchaccessorylift, addPLift, addALift } from "./utils.mjs";
+import { getDate } from "./utils.mjs";
+import { fetchprimarylift, fetchaccessorylift, addPLift, addALift } from "./lifts.mjs";
 
 // Define the handleRouteChange function
 function handleRouteChange() {
