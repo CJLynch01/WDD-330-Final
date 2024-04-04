@@ -1,0 +1,51 @@
+import { getDate, saveJournalDataToLocalStorage } from "./utils.mjs";
+
+export function addRow(tableId) {
+    const table = document.getElementById(tableId);
+    if (!table) {
+        console.error(`Table with ID '${tableId}' not found`);
+        return;
+    }
+    const newRow = table.insertRow(-1);
+    const cells = [];
+    for (let i = 0; i < 4; i++) {
+        cells[i] = newRow.insertCell(i);
+    }
+    return newRow;
+}
+
+export function addJournal() {
+    const newRow = addRow('tbl4');
+    if (newRow) {
+        const date4 = getDate();
+        const jinputValue = document.getElementById("jinput").value;
+        const jentryValue = document.getElementById("jentry").value;
+    
+        newRow.cells[0].textContent = date4;
+        newRow.cells[1].textContent = jinputValue;
+        newRow.cells[2].textContent = jentryValue;
+        newRow.cells[3].innerHTML = '<input type="button" id="deletePRow" value="Delete">';
+
+
+        const journalData = {
+            date4: date4,
+            title: jinputValue,
+            entry: jentryValue,
+        };
+        saveJournalDataToLocalStorage(journalData);
+    }
+}
+
+export function deleteRow(button) {
+    const row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+}
+
+document.addEventListener('click', function(event) {
+    if (event.target.id === 'deletePRow') {
+        const row = event.target.closest('tr');
+        if (row) {
+            row.remove();
+        }
+    }
+});

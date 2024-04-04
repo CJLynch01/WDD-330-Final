@@ -1,6 +1,8 @@
 import { getDate } from "./utils.mjs";
 import { fetchprimarylift, fetchaccessorylift, addPLift, addALift } from "./lifts.mjs";
-import { fetchcardio, addCardio } from "./cardio.mjs";
+import { fetchcardio, addCardio} from "./cardio.mjs";
+import { getPrimaryDataFromLocalStorage, getAccessoryDataFromLocalStorage, getCardioDataFromLocalStorage, getJournalDataFromLocalStorage } from "./records.mjs";
+
 
 // Define the handleRouteChange function
 function handleRouteChange() {
@@ -22,6 +24,13 @@ function handleRouteChange() {
             break;
         case '/journal':
             view = journal();
+            break;
+        case '/records':
+            view = records();
+            getPrimaryDataFromLocalStorage();
+            getAccessoryDataFromLocalStorage();
+            getCardioDataFromLocalStorage();
+            getJournalDataFromLocalStorage();
             break;
         default:
             view = homeView();
@@ -160,5 +169,67 @@ function journal() {
             <h2>Create New Entry</h2>
             <div id="jdate">${getDate()}</div>
             Title: <input type="text" id="jinput" />
-            Entry: <input type="text" id="jentry" />`;
+            Entry: <input type="text" id="jentry" />
+            <button type="button" id="journalToday">Submit</button>
+            `;
+}
+
+// Define the records view function
+function records() {
+    return `
+    <h1>Records</h1>
+
+    <fieldset>
+        <legend>Primary Weight Training Entries
+            <table id="exportedpl" class="table" border="1">
+                <thead>
+                <th>Date</th> 
+                <th>Exercise</th>
+                <th>Sets</th>
+                <th>Reps</th>
+                </thead>
+            </table>
+        </legend>
+    </fieldset>
+
+    <fieldset>
+        <legend>Accessory Weight Training Entries
+            <table id="exportedal" class="table" border="1">
+                <thead>
+                    <th>Date</th> 
+                    <th>Exercise</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                </thead>
+            </table>
+        </legend>
+    </fieldset>
+
+    <fieldset>
+        <legend>Cardio Entries
+            <table id="exportedc" class="table" border="1">
+                <thead>
+                    <th>Date</th> 
+                    <th>Exercise</th>
+                    <th>Time</th>
+                    <th>Hours</th> 
+                    <th>Minutes</th>
+                    <th>Miles</th>
+                </thead>
+            </table>
+        </legend>
+    </fieldset>
+
+    <fieldset>
+    <legend>Journal Entries
+        <table id="exportedj" class="table" border="1">
+            <thead>
+                <th>Date</th> 
+                <th>Title</th>
+                <th>Entry</th>
+            </thead>
+        </table>
+    </legend>
+</fieldset>
+    `;
 }

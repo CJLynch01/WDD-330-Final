@@ -1,4 +1,4 @@
-import { getDate } from "./utils.mjs";
+import { getDate, saveCardioDataToLocalStorage } from "./utils.mjs";
 
 const url3 = "../json/cardio.json";
 
@@ -40,14 +40,30 @@ export function addRow(tableId) {
 export function addCardio() {
     const newRow = addRow('tbl3');
     if (newRow) {
-        const date = getDate();
-        newRow.cells[0].textContent = date;
-        newRow.cells[1].textContent = document.getElementById("cardio").value;
-        newRow.cells[2].textContent = document.getElementById("ctime").value;
-        newRow.cells[3].textContent = document.getElementById("chours").value;
-        newRow.cells[4].textContent = document.getElementById("cminutes").value;
-        newRow.cells[5].textContent = document.getElementById("cmiles").value;
+        const date3 = getDate();
+        const cardioValue = document.getElementById("cardio").value;
+        const ctimeValue = document.getElementById("ctime").value;
+        const choursValue = document.getElementById("chours").value;
+        const cminutesValue = document.getElementById("cminutes").value;
+        const cmilesValue = document.getElementById("cmiles").value;
+
+        newRow.cells[0].textContent = date3;
+        newRow.cells[1].textContent = cardioValue;
+        newRow.cells[2].textContent = ctimeValue;
+        newRow.cells[3].textContent = choursValue;
+        newRow.cells[4].textContent = cminutesValue;
+        newRow.cells[5].textContent = cmilesValue;
         newRow.cells[6].innerHTML = '<input type="button" id="deletePRow" value="Delete">';
+    
+        const cardioData = {
+            date3: date3,
+            exercise: cardioValue,
+            time: ctimeValue,
+            hours: choursValue,
+            minutes: cminutesValue,
+            miles: cmilesValue
+        };
+        saveCardioDataToLocalStorage(cardioData);
     }
 }
 
