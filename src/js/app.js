@@ -1,6 +1,6 @@
 import { getDate } from "./utils.mjs";
 import { fetchprimarylift, fetchaccessorylift, addPLift, addALift, saveLiftingDataToLocalStorage } from "./lifts.mjs";
-import { fetchcardio, addCardio, saveCardioDataToLocalStorage} from "./cardio.mjs";
+import { fetchcardio, addCardio, saveCardioDataToLocalStorage } from "./cardio.mjs";
 import { saveJournalDataToLocalStorage } from "./journal.mjs";
 
 // Define the handleRouteChange function
