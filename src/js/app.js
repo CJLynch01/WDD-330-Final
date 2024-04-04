@@ -1,8 +1,7 @@
 import { getDate } from "./utils.mjs";
-import { fetchprimarylift, fetchaccessorylift, addPLift, addALift } from "./lifts.mjs";
-import { fetchcardio, addCardio} from "./cardio.mjs";
-import { getPrimaryDataFromLocalStorage, getAccessoryDataFromLocalStorage, getCardioDataFromLocalStorage, getJournalDataFromLocalStorage } from "./records.mjs";
-
+import { fetchprimarylift, fetchaccessorylift, addPLift, addALift, saveLiftingDataToLocalStorage } from "./lifts.mjs";
+import { fetchcardio, addCardio, saveCardioDataToLocalStorage} from "./cardio.mjs";
+import { saveJournalDataToLocalStorage } from "./journal.mjs";
 
 // Define the handleRouteChange function
 function handleRouteChange() {
@@ -17,20 +16,22 @@ function handleRouteChange() {
             view = dayWorkout();
             fetchprimarylift();
             fetchaccessorylift();
+            addPLift();
+            addALift();
+            saveLiftingDataToLocalStorage();
             break;
         case '/cardio':
             view = cardio();
             fetchcardio();
+            addCardio();
+            saveCardioDataToLocalStorage();
             break;
         case '/journal':
             view = journal();
+            saveJournalDataToLocalStorage();
             break;
         case '/records':
             view = records();
-            getPrimaryDataFromLocalStorage();
-            getAccessoryDataFromLocalStorage();
-            getCardioDataFromLocalStorage();
-            getJournalDataFromLocalStorage();
             break;
         default:
             view = homeView();
@@ -65,6 +66,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (addAccessoryButton) {
         addAccessoryButton.addEventListener('click', addALift);
     }
+
+    const submitliftsButton = document.getElementById('workoutToday');
+    if (submitliftsButton) {
+        submitliftsButton.addEventListener('click', saveLiftingDataToLocalStorage)
+    }
+
+
 
     //Add event listener to the add cardio button
     const addCardioButton = document.getElementById('addCardioButton');

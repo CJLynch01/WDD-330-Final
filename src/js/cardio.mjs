@@ -1,4 +1,4 @@
-import { getDate, saveCardioDataToLocalStorage } from "./utils.mjs";
+import { getDate } from "./utils.mjs";
 
 const url3 = "../json/cardio.json";
 
@@ -80,3 +80,10 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+export function saveCardioDataToLocalStorage(data) {
+    localStorage.setItem('cardioData', JSON.stringify(data));
+    console.log(data)
+    // Optionally, provide feedback to the user
+    alert('Cardio data saved to local storage.');
+}

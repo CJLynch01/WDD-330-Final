@@ -1,4 +1,4 @@
-import { getDate, saveJournalDataToLocalStorage } from "./utils.mjs";
+import { getDate } from "./utils.mjs";
 
 export function addRow(tableId) {
     const table = document.getElementById(tableId);
@@ -49,3 +49,10 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+export function saveJournalDataToLocalStorage(data) {
+    localStorage.setItem('journalData', JSON.stringify(data));
+    console.log(data)
+    // Optionally, provide feedback to the user
+    alert('Journal data saved to local storage.');
+}

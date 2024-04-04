@@ -1,5 +1,4 @@
 import { getDate } from "./utils.mjs";
-import { saveLiftingDataToLocalStorage } from "./utils.mjs";
 
 const url1 = "../json/primary.json";
 const url2 = "../json/accessory.json";
@@ -116,3 +115,11 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+// Function to save lifting data to local storage
+export function saveLiftingDataToLocalStorage(data) {
+    localStorage.setItem('liftingData', JSON.stringify(data));
+    console.log(data)
+    // Optionally, provide feedback to the user
+    alert('Lifting data saved to local storage.');
+}
