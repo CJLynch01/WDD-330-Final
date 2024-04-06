@@ -1,5 +1,5 @@
 import { getDate } from "./utils.mjs";
-import { fetchprimarylift, fetchaccessorylift, addPLift, addALift, saveLiftingDataToLocalStorage } from "./lifts.mjs";
+import { fetchprimarylift, fetchaccessorylift, addPLift, addALift, savePrimaryLiftingDataToLocalStorage, saveAccessoryLiftingDataToLocalStorage } from "./lifts.mjs";
 import { fetchcardio, addCardio, saveCardioDataToLocalStorage } from "./cardio.mjs";
 import { saveJournalDataToLocalStorage } from "./journal.mjs";
 
@@ -18,7 +18,8 @@ function handleRouteChange() {
             fetchaccessorylift();
             addPLift();
             addALift();
-            saveLiftingDataToLocalStorage();
+            savePrimaryLiftingDataToLocalStorage();
+            saveAccessoryLiftingDataToLocalStorage();
             break;
         case '/cardio':
             view = cardio();
@@ -69,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const submitliftsButton = document.getElementById('workoutToday');
     if (submitliftsButton) {
-        submitliftsButton.addEventListener('click', saveLiftingDataToLocalStorage)
+        submitliftsButton.addEventListener('click', savePrimaryLiftingDataToLocalStorage, saveAccessoryLiftingDataToLocalStorage)
     }
 
 
@@ -188,7 +189,7 @@ function records() {
     <h1>Records</h1>
 
     <fieldset>
-        <legend>Primary Weight Training Entries
+        <legend>Primary Weight Training Entries</legend>
             <table id="exportedpl" class="table" border="1">
                 <thead>
                 <th>Date</th> 
@@ -197,11 +198,10 @@ function records() {
                 <th>Reps</th>
                 </thead>
             </table>
-        </legend>
     </fieldset>
 
     <fieldset>
-        <legend>Accessory Weight Training Entries
+        <legend>Accessory Weight Training Entries</legend>
             <table id="exportedal" class="table" border="1">
                 <thead>
                     <th>Date</th> 
@@ -210,11 +210,10 @@ function records() {
                     <th>Reps</th>
                 </thead>
             </table>
-        </legend>
     </fieldset>
 
     <fieldset>
-        <legend>Cardio Entries
+        <legend>Cardio Entries</legend>
             <table id="exportedc" class="table" border="1">
                 <thead>
                     <th>Date</th> 
@@ -225,11 +224,10 @@ function records() {
                     <th>Miles</th>
                 </thead>
             </table>
-        </legend>
     </fieldset>
 
     <fieldset>
-    <legend>Journal Entries
+    <legend>Journal Entries</legend>
         <table id="exportedj" class="table" border="1">
             <thead>
                 <th>Date</th> 
@@ -237,7 +235,6 @@ function records() {
                 <th>Entry</th>
             </thead>
         </table>
-    </legend>
 </fieldset>
     `;
 }

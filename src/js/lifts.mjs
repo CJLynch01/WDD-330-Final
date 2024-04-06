@@ -65,7 +65,7 @@ export function addPLift() {
             plsetsValue: plsetsValue,
             plrepsValue: plrepsValue,
         };
-        saveLiftingDataToLocalStorage(primaryliftingData);
+        savePrimaryLiftingDataToLocalStorage(primaryliftingData);
     }
 }
 
@@ -89,7 +89,7 @@ export function addALift() {
             alsetsValue: alsetsValue,
             alrepsValue: alrepsValue,
         };
-        saveLiftingDataToLocalStorage(accessoryliftingData);
+        saveAccessoryLiftingDataToLocalStorage(accessoryliftingData);
     }
 }
 
@@ -117,8 +117,15 @@ document.addEventListener('click', function(event) {
 });
 
 // Function to save lifting data to local storage
-export function saveLiftingDataToLocalStorage(data) {
-    localStorage.setItem('liftingData', JSON.stringify(data));
+export function savePrimaryLiftingDataToLocalStorage(data) {
+    localStorage.setItem('primaryliftingData', JSON.stringify(data));
+    console.log(data)
+    // Optionally, provide feedback to the user
+    alert('Lifting data saved to local storage.');
+}
+
+export function saveAccessoryLiftingDataToLocalStorage(data) {
+    localStorage.setItem('accessoryliftingData', JSON.stringify(data));
     console.log(data)
     // Optionally, provide feedback to the user
     alert('Lifting data saved to local storage.');

@@ -2,13 +2,13 @@
 
 
 // Function to retrieve cardio data from local storage
-export function getPrimaryDataFromLocalStorage() {
+export function getPrimaryLiftingDataFromLocalStorage() {
     const data = localStorage.getItem('primaryliftingData');
     return data ? JSON.parse(data) : [];
 }
 
 // Function to retrieve journal data from local storage
-export function getAccessoryDataFromLocalStorage() {
+export function getAccessoryLiftingDataFromLocalStorage() {
     const data = localStorage.getItem('accessoryliftingData');
     return data ? JSON.parse(data) : [];
 }
