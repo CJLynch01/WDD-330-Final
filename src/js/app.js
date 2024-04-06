@@ -2,7 +2,12 @@ import { getDate } from "./utils.mjs";
 import { fetchprimarylift, fetchaccessorylift, addPLift, addALift, savePrimaryLiftingDataToLocalStorage, saveAccessoryLiftingDataToLocalStorage } from "./lifts.mjs";
 import { fetchcardio, addCardio, saveCardioDataToLocalStorage } from "./cardio.mjs";
 import { saveJournalDataToLocalStorage } from "./journal.mjs";
+import { visualizer } from "./music";
 
+
+window.onload = function(){
+    visualizer();
+}
 // Define the handleRouteChange function
 function handleRouteChange() {
     const path = window.location.pathname;

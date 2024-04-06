@@ -1,4 +1,4 @@
-window.onload = function() {
+export function visualizer() {
     let audioCtx = null; 
     let gainNode = null;
     let bufferSource = null;
@@ -161,4 +161,4 @@ window.onload = function() {
 
     createAudioContext();
     drawCircularVisualizer();
-};
+}
