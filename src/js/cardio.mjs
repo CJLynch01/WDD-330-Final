@@ -26,7 +26,6 @@ function loadList(data, selectId) {
 export function addRow(tableId) {
     const table = document.getElementById(tableId);
     if (!table) {
-        console.error(`Table with ID '${tableId}' not found`);
         return;
     }
     const newRow = table.insertRow(-1);
@@ -36,6 +35,8 @@ export function addRow(tableId) {
     }
     return newRow;
 }
+
+let cardioData = [];
 
 export function addCardio() {
     const newRow = addRow('tbl3');
@@ -55,15 +56,14 @@ export function addCardio() {
         newRow.cells[5].textContent = cmilesValue;
         newRow.cells[6].innerHTML = '<input type="button" id="deletePRow" value="Delete">';
     
-        const cardioData = {
+        cardioData.push({
             date3: date3,
             exercise: cardioValue,
             time: ctimeValue,
             hours: choursValue,
             minutes: cminutesValue,
             miles: cmilesValue
-        };
-        saveCardioDataToLocalStorage(cardioData);
+        });
     }
 }
 
@@ -81,9 +81,15 @@ document.addEventListener('click', function(event) {
     }
 });
 
-export function saveCardioDataToLocalStorage(data) {
-    localStorage.setItem('cardioData', JSON.stringify(data));
-    console.log(data)
+export function saveCardioDataToLocalStorage() {
+    localStorage.setItem('cardioData', JSON.stringify(cardioData));
+    console.log(cardioData)
     // Optionally, provide feedback to the user
     alert('Cardio data saved to local storage.');
+}
+
+const submitcardioButton = document.getElementById('cardioToday');
+if (submitcardioButton) {
+    console.log(submitcardioButton)
+    submitcardioButton.addEventListener('click', saveCardioDataToLocalStorage())
 }

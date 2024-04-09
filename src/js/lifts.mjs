@@ -34,7 +34,6 @@ function loadList(data, selectId) {
 export function addRow(tableId) {
     const table = document.getElementById(tableId);
     if (!table) {
-        // console.error(`Table with ID '${tableId}' not found`);
         return;
     }
     const newRow = table.insertRow(-1);
@@ -67,9 +66,7 @@ export function addPLift() {
             plsetsValue: plsetsValue,
             plrepsValue: plrepsValue,
         });
-        // savePrimaryLiftingDataToLocalStorage(primaryliftingData);
     }
-
 }
 
 let accessoryliftingData = [];

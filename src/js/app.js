@@ -26,8 +26,6 @@ function handleRouteChange() {
         case '/cardio':
             view = cardio();
             fetchcardio();
-            addCardio;
-            saveCardioDataToLocalStorage();
             break;
         case '/journal':
             view = journal();
@@ -50,11 +48,13 @@ function handleRouteChange() {
     }
 
     if (path === '/cardio') {
-
+        document.getElementById('cardioToday').addEventListener('click', saveCardioDataToLocalStorage);
+        document.getElementById('addCardioButton').addEventListener('click', addCardio);
     }
 
     if (path === '/journal') {
-
+        document.getElementById('journalToday').addEventListener('click', saveJournalDataToLocalStorage);
+        // document.getElementById('addJournalButton').addEventListener('click', addJournal);
     }
 
     if (path === '/records') {
@@ -75,12 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
             handleRouteChange();
         });
     });
-
-    //Add event listener to the add cardio button
-    const addCardioButton = document.getElementById('addCardioButton');
-    if (addCardioButton) {
-        addCardioButton.addEventListener('click', addCardio);
-    }
 });
 
 // Define the home view function
