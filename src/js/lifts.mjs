@@ -34,7 +34,7 @@ function loadList(data, selectId) {
 export function addRow(tableId) {
     const table = document.getElementById(tableId);
     if (!table) {
-        console.error(`Table with ID '${tableId}' not found`);
+        // console.error(`Table with ID '${tableId}' not found`);
         return;
     }
     const newRow = table.insertRow(-1);
@@ -45,8 +45,10 @@ export function addRow(tableId) {
     return newRow;
 }
 
+let primaryliftingData = [];
+
 export function addPLift() {
-    const newRow = addRow('tbl');
+    const newRow = addRow("tbl");
     if (newRow) {
         const date1 = getDate();
         const primaryliftsValue = document.getElementById("primarylifts").value;
@@ -59,15 +61,18 @@ export function addPLift() {
         newRow.cells[3].textContent = plrepsValue;
         newRow.cells[4].innerHTML = '<input type="button" id="deletePRow" value="Delete">';
     
-        const primaryliftingData = {
+        primaryliftingData.push({
             date1: date1,
             primaryliftsValue: primaryliftsValue,
             plsetsValue: plsetsValue,
             plrepsValue: plrepsValue,
-        };
-        savePrimaryLiftingDataToLocalStorage(primaryliftingData);
+        });
+        // savePrimaryLiftingDataToLocalStorage(primaryliftingData);
     }
+
 }
+
+let accessoryliftingData = [];
 
 export function addALift() {
     const newRow = addRow('tbl2');
@@ -83,13 +88,12 @@ export function addALift() {
         newRow.cells[3].textContent = alrepsValue;
         newRow.cells[4].innerHTML = '<input type="button" id="deletePRow" value="Delete">';
     
-        const accessoryliftingData = {
+        accessoryliftingData.push({
             date2: date2,
             accessoryliftsValue: accessoryliftsValue,
             alsetsValue: alsetsValue,
             alrepsValue: alrepsValue,
-        };
-        saveAccessoryLiftingDataToLocalStorage(accessoryliftingData);
+        });
     }
 }
 
@@ -117,16 +121,23 @@ document.addEventListener('click', function(event) {
 });
 
 // Function to save lifting data to local storage
-export function savePrimaryLiftingDataToLocalStorage(data) {
-    localStorage.setItem('primaryliftingData', JSON.stringify(data));
-    console.log(data)
+export function savePrimaryLiftingDataToLocalStorage() {
+    localStorage.setItem('primaryliftingData', JSON.stringify(primaryliftingData));
+    console.log(primaryliftingData)
     // Optionally, provide feedback to the user
-    alert('Lifting data saved to local storage.');
+    alert('Primary Lifting data saved to local storage.');
 }
 
-export function saveAccessoryLiftingDataToLocalStorage(data) {
-    localStorage.setItem('accessoryliftingData', JSON.stringify(data));
-    console.log(data)
+export function saveAccessoryLiftingDataToLocalStorage() {
+    localStorage.setItem('accessoryliftingData', JSON.stringify(accessoryliftingData));
+    console.log(accessoryliftingData)
     // Optionally, provide feedback to the user
-    alert('Lifting data saved to local storage.');
+    alert('Accessory Lifting data saved to local storage.');
+}
+
+const submitliftsButton = document.getElementById('workoutToday');
+if (submitliftsButton) {
+    console.log(submitliftsButton)
+    submitliftsButton.addEventListener('click', savePrimaryLiftingDataToLocalStorage())
+    submitliftsButton.addEventListener('click', saveAccessoryLiftingDataToLocalStorage())
 }

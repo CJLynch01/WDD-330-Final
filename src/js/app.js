@@ -8,6 +8,7 @@ import { visualizer } from "./music";
 window.onload = function(){
     visualizer();
 }
+
 // Define the handleRouteChange function
 function handleRouteChange() {
     const path = window.location.pathname;
@@ -21,20 +22,15 @@ function handleRouteChange() {
             view = dayWorkout();
             fetchprimarylift();
             fetchaccessorylift();
-            addPLift();
-            addALift();
-            savePrimaryLiftingDataToLocalStorage();
-            saveAccessoryLiftingDataToLocalStorage();
             break;
         case '/cardio':
             view = cardio();
             fetchcardio();
-            addCardio();
+            addCardio;
             saveCardioDataToLocalStorage();
             break;
         case '/journal':
             view = journal();
-            saveJournalDataToLocalStorage();
             break;
         case '/records':
             view = records();
@@ -45,6 +41,25 @@ function handleRouteChange() {
 
     // Render the view
     document.getElementById('app').innerHTML = view;
+
+    if (path === '/day') {
+        document.getElementById('workoutToday').addEventListener('click', savePrimaryLiftingDataToLocalStorage);
+        document.getElementById('workoutToday').addEventListener('click', saveAccessoryLiftingDataToLocalStorage);
+        document.getElementById('addLiftButton').addEventListener('click', addPLift);
+        document.getElementById('addAccessoryButton').addEventListener('click', addALift);    
+    }
+
+    if (path === '/cardio') {
+
+    }
+
+    if (path === '/journal') {
+
+    }
+
+    if (path === '/records') {
+        
+    }
 }
 
 // Listen for the DOMContentLoaded event to ensure the DOM is fully loaded before executing the script
@@ -60,25 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
             handleRouteChange();
         });
     });
-
-    // Add event listener to the add lift button
-    const addLiftButton = document.getElementById('addLiftButton');
-    if (addLiftButton) {
-        addLiftButton.addEventListener('click', addPLift);
-    }
-
-    // Add event listener to the add accessory button
-    const addAccessoryButton = document.getElementById('addAccessoryButton');
-    if (addAccessoryButton) {
-        addAccessoryButton.addEventListener('click', addALift);
-    }
-
-    const submitliftsButton = document.getElementById('workoutToday');
-    if (submitliftsButton) {
-        submitliftsButton.addEventListener('click', savePrimaryLiftingDataToLocalStorage, saveAccessoryLiftingDataToLocalStorage)
-    }
-
-
 
     //Add event listener to the add cardio button
     const addCardioButton = document.getElementById('addCardioButton');
@@ -116,7 +112,7 @@ function dayWorkout() {
         </fieldset>
     </form>
 
-    <table id="tbl" class="table" border="1">
+    <table id="tbl" border="1">
         <thead>
             <th>Date</th> 
             <th>Primary Lift</th>
@@ -126,7 +122,7 @@ function dayWorkout() {
         <tbody></tbody>
     </table>
 
-    <table id="tbl2" class="table" border="1">
+    <table id="tbl2" border="1">
         <thead>
             <th>Date</th> 
             <th>Accessory Lift</th>
