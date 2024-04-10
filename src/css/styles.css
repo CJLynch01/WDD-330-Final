@@ -76,6 +76,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 5rem;
 }
 
 .wrapper {
@@ -365,4 +366,43 @@ canvas {
     display: block;
     margin: auto;
     background-color: transparent;
+}
+
+/* Form Styling */
+H1 {
+    text-align: center;
+}
+
+fieldset {
+    background-color: var(--accent-color);
+    margin-top: 20px;
+}
+
+legend {
+    color: var(--accent-color2);
+    font-weight: 800;
+}
+
+.table {
+    margin-top: 20px;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+#workoutToday, #cardioToday, #journalToday {
+    position: absolute;
+    margin-top: 20px;
+    left: 50%;
+}
+
+/* Footer */
+
+.footer {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 3rem;
 }

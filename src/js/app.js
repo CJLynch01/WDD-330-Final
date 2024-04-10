@@ -109,22 +109,24 @@ function dayWorkout() {
         </fieldset>
     </form>
 
-    <table id="tbl" border="1">
+    <table id="tbl" class="table" border="1">
         <thead>
             <th>Date</th> 
             <th>Primary Lift</th>
             <th>Sets</th>
             <th>Reps</th>
+            <th>Remove</th>
         </thead>
         <tbody></tbody>
     </table>
 
-    <table id="tbl2" border="1">
+    <table id="tbl2" class="table" border="1">
         <thead>
             <th>Date</th> 
             <th>Accessory Lift</th>
             <th>Sets</th>
             <th>Reps</th>
+            <th>Remove</th>
         </thead>
         <tbody></tbody>
     </table>
@@ -161,6 +163,7 @@ function cardio() {
                 <th>Hours</th>
                 <th>Minutes</th>
                 <th>Miles</th>
+                <th>Remove</th>
             </thead>
             <tbody></tbody>
         </table>
@@ -189,6 +192,7 @@ function journal() {
                 <th>Date</th> 
                 <th>Title</th>
                 <th>Entry</th>
+                <th>Remove</th>
             </thead>
             <tbody></tbody>
         </table>
