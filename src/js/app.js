@@ -111,29 +111,33 @@ function dayWorkout() {
         </fieldset>
     </form>
 
-    <table id="tbl" class="table" border="1">
-        <thead>
-            <th>Date</th> 
-            <th>Primary Lift</th>
-            <th>Weight</th>
-            <th>Sets</th>
-            <th>Reps</th>
-            <th>Remove</th>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <div class="scrollable">
+        <table id="tbl" class="table" border="1">
+            <thead>
+                <th>Date</th> 
+                <th>Primary Lift</th>
+                <th>Weight</th>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Remove</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
-    <table id="tbl2" class="table" border="1">
-        <thead>
-            <th>Date</th> 
-            <th>Accessory Lift</th>
-            <th>Weight</th>
-            <th>Sets</th>
-            <th>Reps</th>
-            <th>Remove</th>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <div class="scrollable">
+        <table id="tbl2" class="table" border="1">
+            <thead>
+                <th>Date</th> 
+                <th>Accessory Lift</th>
+                <th>Weight</th>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Remove</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
     <button type="button" id="workoutToday">Submit</button>
     `;
@@ -159,18 +163,20 @@ function cardio() {
         </fieldset>
     </form>
     
-        <table id="tbl3" class="table" border="1">
-            <thead>
-                <th>Date</th> 
-                <th>Exercise</th>
-                <th>Time</th>
-                <th>Hours</th>
-                <th>Minutes</th>
-                <th>Miles</th>
-                <th>Remove</th>
-            </thead>
-            <tbody></tbody>
-        </table>
+        <div class="scrollable">
+            <table id="tbl3" class="table" border="1">
+                <thead>
+                    <th>Date</th> 
+                    <th>Exercise</th>
+                    <th>Time</th>
+                    <th>Hours</th>
+                    <th>Minutes</th>
+                    <th>Miles</th>
+                    <th>Remove</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
 
         <button type="button" id="cardioToday">Submit</button>
 
@@ -191,15 +197,18 @@ function journal() {
             <input id="addJournalButton" type="button" value="Add Data">
         </fieldset>
     </form>  
-        <table id="tbl4" class="table" border="1">
-            <thead>
-                <th>Date</th> 
-                <th>Title</th>
-                <th>Entry</th>
-                <th>Remove</th>
-            </thead>
-            <tbody></tbody>
-        </table>
+
+        <div class="scrollable">
+            <table id="tbl4" class="table" border="1">
+                <thead>
+                    <th>Date</th> 
+                    <th>Title</th>
+                    <th>Entry</th>
+                    <th>Remove</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
 
     <button type="button" id="journalToday">Submit</button>
 
@@ -211,69 +220,80 @@ function records() {
     return `
     <h1>Records</h1>
 
-    <fieldset>
-        <legend>Primary Weight Training Entries</legend>
-            <table id="exportedpl" class="table" border="1">
+        <fieldset>
+            <legend>Primary Weight Training Entries</legend>
+            <div class="scrollable">
+                <table id="exportedpl" class="table" border="1">
+                    <thead>
+                        <tr>
+                            <th>Date</th> 
+                            <th>Exercise</th>
+                            <th>Weight</th>
+                            <th>Sets</th>
+                            <th>Reps</th>
+                        </tr>
+                    </thead>
+                    <tbody id="exportedbodypl">
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Accessory Weight Training Entries</legend>
+            <div class="scrollable">
+                <table id="exportedal" class="table" border="1">
+                    <thead>
+                        <tr>
+                            <th>Date</th> 
+                            <th>Exercise</th>
+                            <th>Weight</th>
+                            <th>Sets</th>
+                            <th>Reps</th>
+                        </tr>
+                    </thead>
+                    <tbody id="exportedbodyal">
+                    </tbody>
+                </table>
+            </div>   
+        </fieldset>   
+
+        <fieldset>
+            <legend>Cardio Entries</legend>
+            <div class="scrollable">
+                <table id="exportedc" class="table" border="1">
+                    <thead>
+                        <tr>
+                            <th>Date</th> 
+                            <th>Exercise</th>
+                            <th>Time</th>
+                            <th>Hours</th> 
+                            <th>Minutes</th>
+                            <th>Miles</th>
+                        </tr>
+                    </thead>
+                    <tbody id="exportedbodyc">
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+
+        <fieldset>
+        <legend>Journal Entries</legend>
+        <div class="scrollable">
+            <table id="exportedj" class="table" border="1">
                 <thead>
                     <tr>
                         <th>Date</th> 
-                        <th>Exercise</th>
-                        <th>Sets</th>
-                        <th>Reps</th>
+                        <th>Title</th>
+                        <th>Entry</th>
                     </tr>
                 </thead>
-                <tbody id="exportedbodypl">
+                <tbody id="exportedbodyj">
                 </tbody>
             </table>
+        </div>
     </fieldset>
-
-    <fieldset>
-        <legend>Accessory Weight Training Entries</legend>
-            <table id="exportedal" class="table" border="1">
-                <thead>
-                    <tr>
-                        <th>Date</th> 
-                        <th>Exercise</th>
-                        <th>Sets</th>
-                        <th>Reps</th>
-                    </tr>
-                </thead>
-                <tbody id="exportedbodyal">
-                </tbody>
-            </table>
-    </fieldset>
-
-    <fieldset>
-        <legend>Cardio Entries</legend>
-            <table id="exportedc" class="table" border="1">
-                <thead>
-                    <tr>
-                        <th>Date</th> 
-                        <th>Exercise</th>
-                        <th>Time</th>
-                        <th>Hours</th> 
-                        <th>Minutes</th>
-                        <th>Miles</th>
-                    </tr>
-                </thead>
-                <tbody id="exportedbodyc">
-                </tbody>
-            </table>
-    </fieldset>
-
-    <fieldset>
-    <legend>Journal Entries</legend>
-        <table id="exportedj" class="table" border="1">
-            <thead>
-                <tr>
-                    <th>Date</th> 
-                    <th>Title</th>
-                    <th>Entry</th>
-                </tr>
-            </thead>
-            <tbody id="exportedbodyj">
-            </tbody>
-        </table>
-</fieldset>
+</div>
     `;
 }

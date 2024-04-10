@@ -31,6 +31,7 @@ export function primaryLiftTemplate(item1) {
     <tr>
         <td>${item1.date1}</td>
         <td>${item1.primaryliftsValue}</td>
+        <td>${item1.plweightValue}</td>
         <td>${item1.plsetsValue}</td>
         <td>${item1.plrepsValue}</td>
     </tr>
@@ -70,6 +71,7 @@ export function accessoryLiftTemplate(item2) {
     <tr>
         <td>${item2.date2}</td>
         <td>${item2.accessoryliftsValue}</td>
+        <td>${item2.alweightValue}</td>
         <td>${item2.alsetsValue}</td>
         <td>${item2.alrepsValue}</td>
     </tr>
