@@ -3,6 +3,7 @@ import { fetchprimarylift, fetchaccessorylift, addPLift, addALift, savePrimaryLi
 import { fetchcardio, addCardio, saveCardioDataToLocalStorage } from "./cardio.mjs";
 import { saveJournalDataToLocalStorage } from "./journal.mjs";
 import { visualizer } from "./music";
+import { displayPrimaryLiftingDataFromLocalStorage } from "./records.mjs";
 
 
 window.onload = function(){
@@ -26,8 +27,6 @@ function handleRouteChange() {
         case '/cardio':
             view = cardio();
             fetchcardio();
-            addCardio;
-            saveCardioDataToLocalStorage();
             break;
         case '/journal':
             view = journal();
@@ -41,6 +40,7 @@ function handleRouteChange() {
 
     // Render the view
     document.getElementById('app').innerHTML = view;
+    // displayPrimaryLiftingDataFromLocalStorage();
 
     if (path === '/day') {
         document.getElementById('workoutToday').addEventListener('click', savePrimaryLiftingDataToLocalStorage);
@@ -50,15 +50,19 @@ function handleRouteChange() {
     }
 
     if (path === '/cardio') {
-
+        document.getElementById('cardioToday').addEventListener('click', saveCardioDataToLocalStorage);
+        document.getElementById('addCardioButton').addEventListener('click', addCardio);
     }
 
     if (path === '/journal') {
-
+        document.getElementById('journalToday').addEventListener('click', saveJournalDataToLocalStorage);
     }
 
     if (path === '/records') {
-        
+        displayPrimaryLiftingDataFromLocalStorage();
+        // window.onload = function() {
+        //     displayPrimaryLiftingDataFromLocalStorage();
+        // };
     }
 }
 
@@ -66,7 +70,7 @@ function handleRouteChange() {
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the router
     handleRouteChange();
-
+    // displayPrimaryLiftingDataFromLocalStorage();
     // Add event listeners to the route links
     document.querySelectorAll('.route').forEach(link => {
         link.addEventListener('click', function(e) {
@@ -75,12 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
             handleRouteChange();
         });
     });
-
-    //Add event listener to the add cardio button
-    const addCardioButton = document.getElementById('addCardioButton');
-    if (addCardioButton) {
-        addCardioButton.addEventListener('click', addCardio);
-    }
 });
 
 // Define the home view function
@@ -193,11 +191,15 @@ function records() {
         <legend>Primary Weight Training Entries</legend>
             <table id="exportedpl" class="table" border="1">
                 <thead>
-                <th>Date</th> 
-                <th>Exercise</th>
-                <th>Sets</th>
-                <th>Reps</th>
+                    <tr>
+                        <th>Date</th> 
+                        <th>Exercise</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
                 </thead>
+                <tbody id="exportedbodypl">
+                </tbody>
             </table>
     </fieldset>
 

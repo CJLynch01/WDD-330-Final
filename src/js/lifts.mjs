@@ -122,16 +122,25 @@ document.addEventListener('click', function(event) {
 
 // Function to save lifting data to local storage
 export function savePrimaryLiftingDataToLocalStorage() {
-    localStorage.setItem('primaryliftingData', JSON.stringify(primaryliftingData));
-    console.log(primaryliftingData)
+    let storedFormData = JSON.parse(localStorage.getItem('primaryliftingData')) || [];
+    if(!Array.isArray(storedFormData)){
+        storedFormData = [];
+    }
+    storedFormData = storedFormData.concat(primaryliftingData);
+    localStorage.setItem('primaryliftingData', JSON.stringify(storedFormData));
     // Optionally, provide feedback to the user
     alert('Primary Lifting data saved to local storage.');
 }
 
-export function saveAccessoryLiftingDataToLocalStorage() {
-    localStorage.setItem('accessoryliftingData', JSON.stringify(accessoryliftingData));
-    console.log(accessoryliftingData)
-    // Optionally, provide feedback to the user
+export function saveAccessoryLiftingDataToLocalStorage() { 
+    let storedFormData = JSON.parse(localStorage.getItem('accessoryliftingData')) || [];
+    if(!Array.isArray(storedFormData)){
+        storedFormData = [];
+    }
+    storedFormData = storedFormData.concat(accessoryliftingData);
+    localStorage.setItem('accessoryliftingData', JSON.stringify(storedFormData));
+    
+// Optionally, provide feedback to the user
     alert('Accessory Lifting data saved to local storage.');
 }
 

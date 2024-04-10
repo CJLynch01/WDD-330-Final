@@ -1,26 +1,43 @@
+import { getLocalStorage } from "./utils.mjs";
 
 
-
-// Function to retrieve cardio data from local storage
-export function getPrimaryLiftingDataFromLocalStorage() {
-    const data = localStorage.getItem('primaryliftingData');
-    return data ? JSON.parse(data) : [];
+export function displayPrimaryLiftingDataFromLocalStorage() {
+    // Retrieve primary lifting data from local storage
+    const storedData = getLocalStorage('primaryliftingData');
+    const outputElement1 = document.getElementById('exportedbodypl');
+    console.log(storedData)
+    renderListWithTemplate(primaryLiftTemplate, outputElement1, storedData)
 }
 
-// Function to retrieve journal data from local storage
-export function getAccessoryLiftingDataFromLocalStorage() {
-    const data = localStorage.getItem('accessoryliftingData');
-    return data ? JSON.parse(data) : [];
+let primaryliftNew = "";
+
+export function renderListWithTemplate(
+    templateFn,
+    parentElement,
+    list,
+    position = "afterbegin",
+    clear = true
+  ) {
+    if (clear) {
+      parentElement.innerHTML = "";
+      primaryliftNew = "";
+    }
+    console.log(list)
+    list.forEach(primaryLiftTemplate)
+    console.log(primaryliftNew)
+    // const htmlString = list.map(templateFn);
+    parentElement.insertAdjacentHTML(position, primaryliftNew + "");
 }
 
-// Function to retrieve journal data from local storage
-export function getCardioDataFromLocalStorage() {
-    const data = localStorage.getItem('cardioData');
-    return data ? JSON.parse(data) : [];
-}
+export function primaryLiftTemplate(item) {
+    const newItem = `
+    <tr>
+        <td>${item.date1}</td>
+        <td>${item.primaryliftsValue}</td>
+        <td>${item.plsetsValue}</td>
+        <td>${item.plrepsValue}</td>
+    </tr>
+    `;
 
-// Function to retrieve journal data from local storage
-export function getJournalDataFromLocalStorage() {
-    const data = localStorage.getItem('journalData');
-    return data ? JSON.parse(data) : [];
+    primaryliftNew = primaryliftNew + newItem
 }

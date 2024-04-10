@@ -1,4 +1,3 @@
-
 export function getDate(){
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
   
@@ -9,4 +8,8 @@ export function getDate(){
   
     today = mm + " " + dd + ", " + yyyy;
     return today;
+}
+
+export function getLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key));
 }
