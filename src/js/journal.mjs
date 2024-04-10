@@ -3,7 +3,6 @@ import { getDate } from "./utils.mjs";
 export function addRow(tableId) {
     const table = document.getElementById(tableId);
     if (!table) {
-        console.error(`Table with ID '${tableId}' not found`);
         return;
     }
     const newRow = table.insertRow(-1);
@@ -13,6 +12,8 @@ export function addRow(tableId) {
     }
     return newRow;
 }
+
+let journalData = [];
 
 export function addJournal() {
     const newRow = addRow('tbl4');
@@ -27,12 +28,11 @@ export function addJournal() {
         newRow.cells[3].innerHTML = '<input type="button" id="deletePRow" value="Delete">';
 
 
-        const journalData = {
+        journalData.push({
             date4: date4,
             title: jinputValue,
             entry: jentryValue,
-        };
-        saveJournalDataToLocalStorage(journalData);
+        });
     }
 }
 
@@ -50,9 +50,15 @@ document.addEventListener('click', function(event) {
     }
 });
 
-export function saveJournalDataToLocalStorage(data) {
-    localStorage.setItem('journalData', JSON.stringify(data));
-    console.log(data)
+export function saveJournalDataToLocalStorage() {
+    localStorage.setItem('journalData', JSON.stringify(journalData));
+    console.log(journalData)
     // Optionally, provide feedback to the user
     alert('Journal data saved to local storage.');
+}
+
+const submitjournalButton = document.getElementById('journalToday');
+if (submitjournalButton) {
+    console.log(submitjournalButton)
+    submitjournalButton.addEventListener('click', saveJournalDataToLocalStorage())
 }

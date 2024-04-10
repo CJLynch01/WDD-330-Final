@@ -55,7 +55,7 @@ function handleRouteChange() {
     }
 
     if (path === '/journal') {
-        document.getElementById('journalToday').addEventListener('click', saveJournalDataToLocalStorage);
+
     }
 
     if (path === '/records') {
