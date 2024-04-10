@@ -51,7 +51,12 @@ document.addEventListener('click', function(event) {
 });
 
 export function saveJournalDataToLocalStorage() {
-    localStorage.setItem('journalData', JSON.stringify(journalData));
+    let storedFormData4 = JSON.parse(localStorage.getItem('journalData')) || [];
+    if(!Array.isArray(storedFormData4)) {
+        storedFormData4 = [];
+    }
+    storedFormData4 = storedFormData4.concat(journalData);
+    localStorage.setItem('journalData', JSON.stringify(storedFormData4));
     console.log(journalData)
     // Optionally, provide feedback to the user
     alert('Journal data saved to local storage.');

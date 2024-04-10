@@ -130,12 +130,12 @@ export function savePrimaryLiftingDataToLocalStorage() {
 }
 
 export function saveAccessoryLiftingDataToLocalStorage() { 
-    let storedFormData = JSON.parse(localStorage.getItem('accessoryliftingData')) || [];
-    if(!Array.isArray(storedFormData)){
-        storedFormData = [];
+    let storedFormData2 = JSON.parse(localStorage.getItem('accessoryliftingData')) || [];
+    if(!Array.isArray(storedFormData2)){
+        storedFormData2 = [];
     }
-    storedFormData = storedFormData.concat(accessoryliftingData);
-    localStorage.setItem('accessoryliftingData', JSON.stringify(storedFormData));
+    storedFormData2 = storedFormData2.concat(accessoryliftingData);
+    localStorage.setItem('accessoryliftingData', JSON.stringify(storedFormData2));
     
 // Optionally, provide feedback to the user
     alert('Accessory Lifting data saved to local storage.');

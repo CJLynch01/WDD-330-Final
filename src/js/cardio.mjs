@@ -82,7 +82,13 @@ document.addEventListener('click', function(event) {
 });
 
 export function saveCardioDataToLocalStorage() {
-    localStorage.setItem('cardioData', JSON.stringify(cardioData));
+    let storedFormData3 = JSON.parse(localStorage.getItem('cardioData')) || [];
+    console.log(storedFormData3)
+    if(!Array.isArray(storedFormData3)){
+        storedFormData3 = [];
+    }
+    storedFormData3 = storedFormData3.concat(cardioData);
+    localStorage.setItem('cardioData', JSON.stringify(storedFormData3));
     console.log(cardioData)
     // Optionally, provide feedback to the user
     alert('Cardio data saved to local storage.');

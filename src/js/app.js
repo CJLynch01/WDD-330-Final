@@ -3,7 +3,7 @@ import { fetchprimarylift, fetchaccessorylift, addPLift, addALift, savePrimaryLi
 import { fetchcardio, addCardio, saveCardioDataToLocalStorage } from "./cardio.mjs";
 import { saveJournalDataToLocalStorage } from "./journal.mjs";
 import { visualizer } from "./music";
-import { displayPrimaryLiftingDataFromLocalStorage } from "./records.mjs";
+import { displayAccessoryLiftingDataFromLocalStorage, displayPrimaryLiftingDataFromLocalStorage, displayCardioDataFromLocalStorage, displayJournalDataFromLocalStorage } from "./records.mjs";
 
 
 window.onload = function(){
@@ -40,7 +40,6 @@ function handleRouteChange() {
 
     // Render the view
     document.getElementById('app').innerHTML = view;
-    // displayPrimaryLiftingDataFromLocalStorage();
 
     if (path === '/day') {
         document.getElementById('workoutToday').addEventListener('click', savePrimaryLiftingDataToLocalStorage);
@@ -55,14 +54,14 @@ function handleRouteChange() {
     }
 
     if (path === '/journal') {
-
+        document.getElementById('journalToday').addEventListener('click', saveJournalDataToLocalStorage);
     }
 
     if (path === '/records') {
         displayPrimaryLiftingDataFromLocalStorage();
-        // window.onload = function() {
-        //     displayPrimaryLiftingDataFromLocalStorage();
-        // };
+        displayAccessoryLiftingDataFromLocalStorage();
+        displayCardioDataFromLocalStorage();
+        displayJournalDataFromLocalStorage();
     }
 }
 
@@ -70,7 +69,6 @@ function handleRouteChange() {
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize the router
     handleRouteChange();
-    // displayPrimaryLiftingDataFromLocalStorage();
     // Add event listeners to the route links
     document.querySelectorAll('.route').forEach(link => {
         link.addEventListener('click', function(e) {
@@ -207,11 +205,15 @@ function records() {
         <legend>Accessory Weight Training Entries</legend>
             <table id="exportedal" class="table" border="1">
                 <thead>
-                    <th>Date</th> 
-                    <th>Exercise</th>
-                    <th>Sets</th>
-                    <th>Reps</th>
+                    <tr>
+                        <th>Date</th> 
+                        <th>Exercise</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
                 </thead>
+                <tbody id="exportedbodyal">
+                </tbody>
             </table>
     </fieldset>
 
@@ -219,13 +221,17 @@ function records() {
         <legend>Cardio Entries</legend>
             <table id="exportedc" class="table" border="1">
                 <thead>
-                    <th>Date</th> 
-                    <th>Exercise</th>
-                    <th>Time</th>
-                    <th>Hours</th> 
-                    <th>Minutes</th>
-                    <th>Miles</th>
+                    <tr>
+                        <th>Date</th> 
+                        <th>Exercise</th>
+                        <th>Time</th>
+                        <th>Hours</th> 
+                        <th>Minutes</th>
+                        <th>Miles</th>
+                    </tr>
                 </thead>
+                <tbody id="exportedbodyc">
+                </tbody>
             </table>
     </fieldset>
 
@@ -233,10 +239,14 @@ function records() {
     <legend>Journal Entries</legend>
         <table id="exportedj" class="table" border="1">
             <thead>
-                <th>Date</th> 
-                <th>Title</th>
-                <th>Entry</th>
+                <tr>
+                    <th>Date</th> 
+                    <th>Title</th>
+                    <th>Entry</th>
+                </tr>
             </thead>
+            <tbody id="exportedbodyj">
+            </tbody>
         </table>
 </fieldset>
     `;
