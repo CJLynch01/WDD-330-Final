@@ -38,7 +38,7 @@ export function addRow(tableId) {
     }
     const newRow = table.insertRow(-1);
     const cells = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
         cells[i] = newRow.insertCell(i);
     }
     return newRow;
@@ -51,18 +51,21 @@ export function addPLift() {
     if (newRow) {
         const date1 = getDate();
         const primaryliftsValue = document.getElementById("primarylifts").value;
+        const plweightValue = document.getElementById("plweight").value;
         const plsetsValue = document.getElementById("plsets").value;
         const plrepsValue = document.getElementById("plreps").value;
 
         newRow.cells[0].textContent = date1;
         newRow.cells[1].textContent = primaryliftsValue;
-        newRow.cells[2].textContent = plsetsValue;
-        newRow.cells[3].textContent = plrepsValue;
-        newRow.cells[4].innerHTML = '<input type="button" id="deletePRow" value="Delete">';
+        newRow.cells[2].textContent = plweightValue;
+        newRow.cells[3].textContent = plsetsValue;
+        newRow.cells[4].textContent = plrepsValue;
+        newRow.cells[5].innerHTML = '<input type="button" id="deletePRow" value="Delete">';
     
         primaryliftingData.push({
             date1: date1,
             primaryliftsValue: primaryliftsValue,
+            plweightValue: plweightValue,
             plsetsValue: plsetsValue,
             plrepsValue: plrepsValue,
         });
@@ -76,18 +79,21 @@ export function addALift() {
     if (newRow) {
         const date2 = getDate();
         const accessoryliftsValue = document.getElementById("accessorylifts").value;
+        const alweightValue = document.getElementById("alweight").value;
         const alsetsValue = document.getElementById("alsets").value;
         const alrepsValue = document.getElementById("alreps").value;
 
         newRow.cells[0].textContent = date2;
         newRow.cells[1].textContent = accessoryliftsValue;
-        newRow.cells[2].textContent = alsetsValue;
-        newRow.cells[3].textContent = alrepsValue;
-        newRow.cells[4].innerHTML = '<input type="button" id="deletePRow" value="Delete">';
+        newRow.cells[2].textContent = alweightValue;
+        newRow.cells[3].textContent = alsetsValue;
+        newRow.cells[4].textContent = alrepsValue;
+        newRow.cells[5].innerHTML = '<input type="button" id="deletePRow" value="Delete">';
     
         accessoryliftingData.push({
             date2: date2,
             accessoryliftsValue: accessoryliftsValue,
+            alweightValue: alweightValue,
             alsetsValue: alsetsValue,
             alrepsValue: alrepsValue,
         });

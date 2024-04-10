@@ -95,6 +95,7 @@ function dayWorkout() {
         <fieldset>
             <legend>Primary Lifts</legend>
             <select name="primarylifts" id="primarylifts"></select>
+            Weight:<input id="plweight" type="text" name="plweight">
             Sets:<input id="plsets" type="text" name="plsets">
             Reps:<input id="plreps" type="text" name="plreps">
             <input id="addLiftButton" type="button" value="Add Data">
@@ -103,6 +104,7 @@ function dayWorkout() {
         <fieldset>
             <legend>Accessory Lifts</legend>
             <select name="accessorylifts" id="accessorylifts"></select>
+            Weight:<input id="alweight" type="text" name="alweight">
             Sets:<input id="alsets" type="text" name="alsets">
             Reps:<input id="alreps" type="text" name="alreps">
             <input id="addAccessoryButton" type="button" value="Add Data">
@@ -113,6 +115,7 @@ function dayWorkout() {
         <thead>
             <th>Date</th> 
             <th>Primary Lift</th>
+            <th>Weight</th>
             <th>Sets</th>
             <th>Reps</th>
             <th>Remove</th>
@@ -124,6 +127,7 @@ function dayWorkout() {
         <thead>
             <th>Date</th> 
             <th>Accessory Lift</th>
+            <th>Weight</th>
             <th>Sets</th>
             <th>Reps</th>
             <th>Remove</th>
