@@ -1,7 +1,7 @@
 import { getDate } from "./utils.mjs";
 import { fetchprimarylift, fetchaccessorylift, addPLift, addALift, savePrimaryLiftingDataToLocalStorage, saveAccessoryLiftingDataToLocalStorage } from "./lifts.mjs";
 import { fetchcardio, addCardio, saveCardioDataToLocalStorage } from "./cardio.mjs";
-import { saveJournalDataToLocalStorage } from "./journal.mjs";
+import { addJournal, saveJournalDataToLocalStorage } from "./journal.mjs";
 import { visualizer } from "./music";
 import { displayAccessoryLiftingDataFromLocalStorage, displayPrimaryLiftingDataFromLocalStorage, displayCardioDataFromLocalStorage, displayJournalDataFromLocalStorage } from "./records.mjs";
 
@@ -55,6 +55,7 @@ function handleRouteChange() {
 
     if (path === '/journal') {
         document.getElementById('journalToday').addEventListener('click', saveJournalDataToLocalStorage);
+        document.getElementById('addJournalButton').addEventListener('click', addJournal);
     }
 
     if (path === '/records') {
@@ -171,12 +172,29 @@ function cardio() {
 
 // Define the journal view function
 function journal() {
-    return `<h1>Journal</h1>
-            <h2>Create New Entry</h2>
-            <div id="jdate">${getDate()}</div>
-            Title: <input type="text" id="jinput" />
-            Entry: <input type="text" id="jentry" />
-            <button type="button" id="journalToday">Submit</button>
+    return `
+    <h1>Journal</h1>
+    <div id="jdate">${getDate()}</div>
+
+    <form>
+        <fieldset>
+            <legend>Create New Entry</legend>
+            Title: <input type="text" id="jinput" name="jinput">
+            Entry: <input type="text" id="jentry" name="jentry">
+            <input id="addJournalButton" type="button" value="Add Data">
+        </fieldset>
+    </form>  
+        <table id="tbl4" class="table" border="1">
+            <thead>
+                <th>Date</th> 
+                <th>Title</th>
+                <th>Entry</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+    <button type="button" id="journalToday">Submit</button>
+
             `;
 }
 

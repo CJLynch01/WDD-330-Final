@@ -89,7 +89,6 @@ export function saveCardioDataToLocalStorage() {
     }
     storedFormData3 = storedFormData3.concat(cardioData);
     localStorage.setItem('cardioData', JSON.stringify(storedFormData3));
-    console.log(cardioData)
     // Optionally, provide feedback to the user
     alert('Cardio data saved to local storage.');
 }

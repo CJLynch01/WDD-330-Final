@@ -4,9 +4,9 @@ import { getLocalStorage } from "./utils.mjs";
 // ------------------Primary Lift 
 export function displayPrimaryLiftingDataFromLocalStorage() {
     // Retrieve primary lifting data from local storage
-    const storedData = getLocalStorage('primaryliftingData');
+    const storedData1 = getLocalStorage('primaryliftingData');
     const outputElement1 = document.getElementById('exportedbodypl');
-    renderListWithTemplate(primaryLiftTemplate, outputElement1, storedData)
+    renderListWithTemplate(primaryLiftTemplate, outputElement1, storedData1)
 }
 
 let primaryliftNew = "";
@@ -26,17 +26,17 @@ export function renderListWithTemplate(
     parentElement.insertAdjacentHTML(position, primaryliftNew + "");
 }
 
-export function primaryLiftTemplate(item) {
-    const newItem = `
+export function primaryLiftTemplate(item1) {
+    const newItem1 = `
     <tr>
-        <td>${item.date1}</td>
-        <td>${item.primaryliftsValue}</td>
-        <td>${item.plsetsValue}</td>
-        <td>${item.plrepsValue}</td>
+        <td>${item1.date1}</td>
+        <td>${item1.primaryliftsValue}</td>
+        <td>${item1.plsetsValue}</td>
+        <td>${item1.plrepsValue}</td>
     </tr>
     `;
 
-    primaryliftNew = primaryliftNew + newItem
+    primaryliftNew = primaryliftNew + newItem1
 }
 
 // ------------------Accessory Lift 
@@ -65,13 +65,13 @@ export function renderListWithTemplate2(
     parentElement.insertAdjacentHTML(position, accessoryliftNew + "");
 }
 
-export function accessoryLiftTemplate(item) {
+export function accessoryLiftTemplate(item2) {
     const newItem2 = `
     <tr>
-        <td>${item.date2}</td>
-        <td>${item.accessoryliftsValue}</td>
-        <td>${item.alsetsValue}</td>
-        <td>${item.alrepsValue}</td>
+        <td>${item2.date2}</td>
+        <td>${item2.accessoryliftsValue}</td>
+        <td>${item2.alsetsValue}</td>
+        <td>${item2.alrepsValue}</td>
     </tr>
     `;
 
@@ -122,7 +122,7 @@ export function displayJournalDataFromLocalStorage() {
     // Retrieve primary lifting data from local storage
     const storedData4 = getLocalStorage('journalData');
     const outputElement4 = document.getElementById('exportedbodyj');
-    renderListWithTemplate4(journalTemplate, outputElement4, storedData4)
+    renderListWithTemplate4(journalTemplate, outputElement4, storedData4);
 }
 
 let journalNew = "";
@@ -143,12 +143,12 @@ export function renderListWithTemplate4(
     parentElement.insertAdjacentHTML(position, journalNew + "");
 }
 
-export function journalTemplate(item) {
+export function journalTemplate(item4) {
     const newItem4 = `
     <tr>
-        <td>${item.date4}</td>
-        <td>${item.jinputValue}</td>
-        <td>${item.jentryValue}</td>
+        <td>${item4.date4}</td>
+        <td>${item4.title}</td>
+        <td>${item4.entry}</td>
     </tr>
     `;
 
