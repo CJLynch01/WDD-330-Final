@@ -4,7 +4,6 @@ const captionDesc = document.querySelector('figcaption');
 const url = 'https://api.openweathermap.org/data/2.5/weather?lat=41.17&lon=-111.98&appid=d8a9e71401b6b1b5681eae6b4172a2d7&units=imperial';
 
 async function apiFetch() {
-	console.log("test")
     try {
         const response = await fetch(url);
         if (response.ok) {
