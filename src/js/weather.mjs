@@ -20,14 +20,17 @@ async function apiFetch() {
 }
 
 export function displayResults(data) {
-	console.log(data)
     currentTemp.innerHTML = `${data.main.temp}&deg;F`;
-    const iconsrc = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
-    let desc = data.weather[0].description;
-    weatherIcon.setAttribute('src', iconsrc );
-    weatherIcon.setAttribute('alt', `Weather is ${data.weather.description}`)
-
-	captionDesc.textContent = `${desc}`;
+    
+    if (data.weather && data.weather.length > 0) {
+        const iconsrc = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+        const desc = data.weather[0].description;
+        weatherIcon.setAttribute('src', iconsrc );
+        weatherIcon.setAttribute('alt', `Weather is ${data.weather.description}`)
+        captionDesc.textContent = `${desc}`;
+    } else {
+        console.error("Weather data not available.");
+    }
 }
 
 apiFetch();

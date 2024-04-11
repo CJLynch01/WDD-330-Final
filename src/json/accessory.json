@@ -1,9 +1,17 @@
 {
     "accessory": [
         "",
-        "Deadlift",
-        "Bench Press",
-        "Squat",
-        "Push Press"
+        "Low Back Extension",
+        "Cable Row",
+        "Dumbell Curls",
+        "Shoulder Dumbell Press",
+        "Dips",
+        "Incline Bench Press",
+        "Incline Dumbell Press",
+        "Upright Rows",
+        "Barbell Curls",
+        "Barbell Tricept Extension",
+        "Front Squat",
+        ""
     ]
 }

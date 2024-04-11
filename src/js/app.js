@@ -7,9 +7,26 @@ import { displayAccessoryLiftingDataFromLocalStorage, displayPrimaryLiftingDataF
 import { exportplCSV, exportalCSV, exportcCSV, exportjCSV } from "./utils.mjs";
 import { displayResults } from "./weather.mjs";
 
-window.onload = function(){
+const url = 'https://api.openweathermap.org/data/2.5/weather?lat=41.17&lon=-111.98&appid=d8a9e71401b6b1b5681eae6b4172a2d7&units=imperial';
+
+
+window.onload = async function() {
     visualizer();
-    displayResults();
+    await displayWeather();
+}
+
+async function displayWeather() {
+    try {
+        const response = await fetch(url);
+        if (response.ok) {
+            const data = await response.json();
+            displayResults(data);
+        } else {
+            throw Error(await response.text());
+        }
+    } catch (error) {
+        console.error("Error fetching weather data:", error);
+    }
 }
 
 // Define the handleRouteChange function
