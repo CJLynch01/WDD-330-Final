@@ -14,92 +14,95 @@
                 <img src="images/large.webp" alt="hero image" width="1500" height="750">
             </picture>
         </div>
+
+        <main>
     
-        <div class="audio">
-            <div id="audioControls">
-                <button id="prevButton" class="controlButton">&#10094;</button>
-                <button id="playButton" class="controlButton">&#9658;</button>
-                <button id="pauseButton" class="controlButton" style="display: none;">&#10074;&#10074;</button>
-                <button id="nextButton" class="controlButton">&#10095;</button>
-            </div>
-            
-            <div id="volumebar">
-                <label for="volumeControl">Volume:</label>
-                <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1">
-            </div>
-        
-            <label for="fileInput">Choose Song...</label>
-                <div class="file">
-                    <input type="file" id="fileInput" accept="audio/*" multiple>
+            <div class="audio">
+                <div id="audioControls">
+                    <button id="prevButton" class="controlButton">&#10094;</button>
+                    <button id="playButton" class="controlButton">&#9658;</button>
+                    <button id="pauseButton" class="controlButton" style="display: none;">&#10074;&#10074;</button>
+                    <button id="nextButton" class="controlButton">&#10095;</button>
                 </div>
-        </div>
-
-        <canvas id="visualizer" width="300" height="300"></canvas>
-
-        <div class="index-icons">
-            <div class="wrapper">
-                <input class="scroll" type="radio" name="slide" id="p1" checked>
-                <label for="p1" class="card">
-                    <div class="row">
-                        <div class="icon home">1</div>
-                        <div class="description">
-                            <a href="/" class="route">
-                            <h4>Home</h4>
-                            </a>
-                        </div>
+                
+                <div id="volumebar">
+                    <label for="volumeControl">Volume:</label>
+                    <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1">
+                </div>
+            
+                <label for="fileInput">Choose Song...</label>
+                    <div class="file">
+                        <input type="file" id="fileInput" accept="audio/*" multiple>
                     </div>
-                </label>
-
-                <input class="scroll" type="radio" name="slide" id="p2">
-                <label for="p2" class="card">
-                    <div class="row">
-                        <div class="icon" id="dayicon">2</div>
-                        <div class="description">
-                            <a href="/day" class="route">
-                            <h4>Weight Training</h4>
-                            </a>
-                        </div>
-                    </div>
-                </label>
-
-                <input class="scroll" type="radio" name="slide" id="p3">
-                <label for="p3" class="card">
-                    <div class="row">
-                        <div class="icon">3</div>
-                        <div class="description">
-                            <a href="/cardio" class="route">
-                            <h4>Cardio</h4>
-                            </a>
-                        </div>
-                    </div>
-                </label>
-
-                <input class="scroll" type="radio" name="slide" id="p4">
-                <label for="p4" class="card">
-                    <div class="row">
-                        <div class="icon">4</div>
-                        <div class="description">
-                            <a href="/journal" class="route">
-                            <h4>Journal</h4>
-                            </a>
-                        </div>
-                    </div>
-                </label>
-
-                <input class="scroll" type="radio" name="slide" id="p5">
-                <label for="p5" class="card">
-                    <div class="row">
-                        <div class="icon">5</div>
-                        <div class="description">
-                            <a href="/records" class="route">
-                            <h4>Saved Data</h4>
-                            </a>
-                        </div>
-                    </div>
-                </label>
             </div>
-        </div>
-        <div id="app"></div>
+
+            <canvas id="visualizer" width="300" height="300"></canvas>
+
+            <div class="index-icons">
+                <div class="wrapper">
+                    <input class="scroll" type="radio" name="slide" id="p1" checked>
+                    <label for="p1" class="card">
+                        <div class="row">
+                            <div class="icon home">1</div>
+                            <div class="description">
+                                <a href="/" class="route">
+                                <h4>Home</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </label>
+
+                    <input class="scroll" type="radio" name="slide" id="p2">
+                    <label for="p2" class="card">
+                        <div class="row">
+                            <div class="icon" id="dayicon">2</div>
+                            <div class="description">
+                                <a href="/day" class="route">
+                                <h4>Weight Training</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </label>
+
+                    <input class="scroll" type="radio" name="slide" id="p3">
+                    <label for="p3" class="card">
+                        <div class="row">
+                            <div class="icon">3</div>
+                            <div class="description">
+                                <a href="/cardio" class="route">
+                                <h4>Cardio</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </label>
+
+                    <input class="scroll" type="radio" name="slide" id="p4">
+                    <label for="p4" class="card">
+                        <div class="row">
+                            <div class="icon">4</div>
+                            <div class="description">
+                                <a href="/journal" class="route">
+                                <h4>Journal</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </label>
+
+                    <input class="scroll" type="radio" name="slide" id="p5">
+                    <label for="p5" class="card">
+                        <div class="row">
+                            <div class="icon">5</div>
+                            <div class="description">
+                                <a href="/records" class="route">
+                                <h4>Saved Data</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <div id="app"></div>
+        </main>
     
         <script src="js/app.js" type="module"></script>
     </body>

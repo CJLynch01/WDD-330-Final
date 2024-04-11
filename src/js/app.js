@@ -4,7 +4,7 @@ import { fetchcardio, addCardio, saveCardioDataToLocalStorage } from "./cardio.m
 import { addJournal, saveJournalDataToLocalStorage } from "./journal.mjs";
 import { visualizer } from "./music";
 import { displayAccessoryLiftingDataFromLocalStorage, displayPrimaryLiftingDataFromLocalStorage, displayCardioDataFromLocalStorage, displayJournalDataFromLocalStorage } from "./records.mjs";
-
+import { exportplCSV, exportalCSV, exportcCSV, exportjCSV } from "./utils.mjs";
 
 window.onload = function(){
     visualizer();
@@ -63,6 +63,10 @@ function handleRouteChange() {
         displayAccessoryLiftingDataFromLocalStorage();
         displayCardioDataFromLocalStorage();
         displayJournalDataFromLocalStorage();
+        document.getElementById('exportplcsv').addEventListener('click', exportplCSV);
+        document.getElementById('exportalcsv').addEventListener('click', exportalCSV);
+        document.getElementById('exportccsv').addEventListener('click', exportcCSV);
+        document.getElementById('exportjcsv').addEventListener('click', exportjCSV);
     }
 }
 
@@ -222,6 +226,7 @@ function records() {
 
         <fieldset>
             <legend>Primary Weight Training Entries</legend>
+            <button type="button" id="exportplcsv">Export Primary Lifting Data To CSV</button>
             <div class="scrollable">
                 <table id="exportedpl" class="table" border="1">
                     <thead>
@@ -241,6 +246,7 @@ function records() {
 
         <fieldset>
             <legend>Accessory Weight Training Entries</legend>
+            <button type="button" id="exportalcsv">Export Accessory Lifting Data To CSV</button>
             <div class="scrollable">
                 <table id="exportedal" class="table" border="1">
                     <thead>
@@ -260,6 +266,7 @@ function records() {
 
         <fieldset>
             <legend>Cardio Entries</legend>
+            <button type="button" id="exportccsv">Export Cardio Data To CSV</button>
             <div class="scrollable">
                 <table id="exportedc" class="table" border="1">
                     <thead>
@@ -280,6 +287,7 @@ function records() {
 
         <fieldset>
         <legend>Journal Entries</legend>
+        <button type="button" id="exportjcsv">Export Journal Data To CSV</button>
         <div class="scrollable">
             <table id="exportedj" class="table" border="1">
                 <thead>

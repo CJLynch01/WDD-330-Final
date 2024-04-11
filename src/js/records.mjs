@@ -5,8 +5,12 @@ import { getLocalStorage } from "./utils.mjs";
 export function displayPrimaryLiftingDataFromLocalStorage() {
     // Retrieve primary lifting data from local storage
     const storedData1 = getLocalStorage('primaryliftingData');
-    const outputElement1 = document.getElementById('exportedbodypl');
-    renderListWithTemplate(primaryLiftTemplate, outputElement1, storedData1)
+    if (storedData1 !== null) {
+      const outputElement1 = document.getElementById('exportedbodypl');
+      renderListWithTemplate(cardioTemplate, outputElement1, storedData1);
+    } else {
+      console.log('No cardio data found in local storage.');
+    }
 }
 
 let primaryliftNew = "";
@@ -44,8 +48,12 @@ export function primaryLiftTemplate(item1) {
 export function displayAccessoryLiftingDataFromLocalStorage() {
     // Retrieve primary lifting data from local storage
     const storedData2 = getLocalStorage('accessoryliftingData');
-    const outputElement2 = document.getElementById('exportedbodyal');
-    renderListWithTemplate2(accessoryLiftTemplate, outputElement2, storedData2)
+    if (storedData2 !== null) {
+      const outputElement2 = document.getElementById('exportedbodyal');
+      renderListWithTemplate2(cardioTemplate, outputElement2, storedData2);
+    } else {
+      console.log('No cardio data found in local storage.');
+  }
 }
 
 let accessoryliftNew = "";
@@ -84,8 +92,12 @@ export function accessoryLiftTemplate(item2) {
 export function displayCardioDataFromLocalStorage() {
     // Retrieve primary lifting data from local storage
     const storedData3 = getLocalStorage('cardioData');
-    const outputElement3 = document.getElementById('exportedbodyc');
-    renderListWithTemplate3(cardioTemplate, outputElement3, storedData3);
+    if (storedData3 !== null) {
+      const outputElement3 = document.getElementById('exportedbodyc');
+      renderListWithTemplate3(cardioTemplate, outputElement3, storedData3);
+  } else {
+      console.log('No cardio data found in local storage.');
+  }
 }
 
 let cardioNew = "";
@@ -123,8 +135,12 @@ export function cardioTemplate(item3) {
 export function displayJournalDataFromLocalStorage() {
     // Retrieve primary lifting data from local storage
     const storedData4 = getLocalStorage('journalData');
-    const outputElement4 = document.getElementById('exportedbodyj');
-    renderListWithTemplate4(journalTemplate, outputElement4, storedData4);
+    if (storedData4 !== null) {
+      const outputElement4 = document.getElementById('exportedbodyj');
+      renderListWithTemplate3(cardioTemplate, outputElement4, storedData4);
+  } else {
+      console.log('No cardio data found in local storage.');
+}
 }
 
 let journalNew = "";
