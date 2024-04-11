@@ -146,6 +146,14 @@
     body {
         background-color: var(--white-);
     }
+
+    a:link {
+        color: var(--accent-color)
+    }
+
+    a:visited {
+        color: var(--accent-color)
+    }
     
     .index-icons {
         width: 100%;
