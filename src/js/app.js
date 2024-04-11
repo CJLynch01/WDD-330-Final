@@ -5,9 +5,11 @@ import { addJournal, saveJournalDataToLocalStorage } from "./journal.mjs";
 import { visualizer } from "./music";
 import { displayAccessoryLiftingDataFromLocalStorage, displayPrimaryLiftingDataFromLocalStorage, displayCardioDataFromLocalStorage, displayJournalDataFromLocalStorage } from "./records.mjs";
 import { exportplCSV, exportalCSV, exportcCSV, exportjCSV } from "./utils.mjs";
+import { displayResults } from "./weather.mjs";
 
 window.onload = function(){
     visualizer();
+    displayResults();
 }
 
 // Define the handleRouteChange function

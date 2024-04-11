@@ -429,8 +429,19 @@ legend {
 .footer {
     background-color: var(--secondary-color);
     color: var(--accent-color);
-    display: flex;
     padding-left: 20px;
     padding-right: 20px;
     margin-top: 3rem;
+}
+
+.footeralign {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    margin: 10px;
 }
