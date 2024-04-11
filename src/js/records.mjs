@@ -137,7 +137,7 @@ export function displayJournalDataFromLocalStorage() {
     const storedData4 = getLocalStorage('journalData');
     if (storedData4 !== null) {
       const outputElement4 = document.getElementById('exportedbodyj');
-      renderListWithTemplate3(cardioTemplate, outputElement4, storedData4);
+      renderListWithTemplate4(cardioTemplate, outputElement4, storedData4);
   } else {
       console.log('No cardio data found in local storage.');
 }
